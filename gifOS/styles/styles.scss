@@ -5,7 +5,9 @@
     padding: 0;
     border: none; //1px solid red;
 }
-
+.tagSugerido {
+    visibility: hidden;
+}
 .sugeridos {
     width: 95vw;
 
@@ -31,6 +33,7 @@
     
     .imgResultados {
         display: flex;
+        flex: 0 0 33%;
         align-content: space-between;
         flex-wrap: wrap;
     }
