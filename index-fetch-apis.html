@@ -6,9 +6,8 @@
     <title>Document</title>
   </head>
   <body>
-    <h1>Hola mundo</h1>
     <img
-      src="http://127.0.0.1:5500/images/7266036c9f3383d21730484150602f01.gif"
+      src=""
       width="200px"
     />
     <script>
@@ -16,19 +15,33 @@
         }
       /* Asi procesariamos html para incluirlo en nuestra
         pagina*/
-      fetch("http://127.0.0.1:5500/footer.html")
+        const CANT_QUOTES = 5;
+      const newsy = fetch("https://thesimpsonsquoteapi.glitch.me/quotes?count="+CANT_QUOTES)
         .then((response) => {
-          console.log(response);
-          return response.text();
+          const quotes = response.json();
+          return quotes;
         })
-        .then((responseText) => {
-          console.log(responseText);
-          const miNuevoElemento = document.createElement("footer");
-          miNuevoElemento.innerHTML = responseText;
-          document.body.appendChild(miNuevoElemento);
+        .then((responseJson) => {
+          return responseJson;
+        }).then(news => {
+
+
+        console.log(news);
+
+
+        for (let i = 0 ; i < news.length; i++) {
+            const miNuevoElemento = document.createElement("div");
+            miNuevoElemento.innerHTML = JSON.stringify(eve[i].quote)  ;
+            document.body.appendChild(miNuevoElemento);
+            
+            const miNuevoElemento2 = document.createElement("img");
+            miNuevoElemento2.src = JSON.stringify(news[i].image).replace(/['"]+/g, '');
+            document.body.appendChild(miNuevoElemento2);
+          }
         });
+
       /* Asi procesariamos una imagen
-       */
+       
       fetch("http://127.0.0.1:5500/images/@sebasgojs.png")
         .then((response) => {
           console.log("Estos son los metadatos de la respuesta", response);
@@ -38,7 +51,7 @@
           return response.blob(); /* tambien se puede usar 
           response.bufferArray, response.text() que lo que hacen
           es tratar de convertir la imagen en algo que
-          javascript pueda interpretar*/
+          javascript pueda interpretar
         })
         .then((responseEnFormatoBlob) => {
           const miImagen = document.querySelector("img");

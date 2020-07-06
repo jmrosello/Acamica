@@ -1,0 +1,37 @@
+@import url('https://fonts.googleapis.com/css?family=IBM+Plex+Mono|IBM+Plex+Sans&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    border: none; //1px solid red;
+}
+
+.sugeridos {
+    width: 95vw;
+
+    .figSugeridos {
+        display: flex;
+        align-content: space-between;
+
+        figure {
+            position: relative;
+
+            button {
+                color: red;
+                position: absolute;
+                bottom: 0;
+                left: 0;
+            }
+        }
+    }
+}
+
+.resultados {
+    width: 95vw;
+    
+    .imgResultados {
+        display: flex;
+        align-content: space-between;
+        flex-wrap: wrap;
+    }
+}
