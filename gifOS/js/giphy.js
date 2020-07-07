@@ -118,14 +118,12 @@ function getTagsRelated(search) {
 
             for (let i = 0 ; i < 3; i++) {
                 tagRelated[i].style.visibility = "visible" 
-                if (i > 0)
-                {
-                    botonRelated = tagRelated[i].childNodes[0];
-                    
-                    botonRelated.innerHTML = JSON.stringify(tagsRelacionados[i].name).replace(/['"]+/g, '') 
-                    botonRelated.onclick = () => {
-                        getSearchResults(JSON.stringify(tagsRelacionados[i].name).replace(/['"]+/g, ''));
-                    };  
+                botonRelated = tagRelated[i].childNodes[0];
+                botonRelated.innerHTML = JSON.stringify(tagsRelacionados[i].name).replace(/['"]+/g, '') 
+                
+                botonRelated.onclick = () => {
+                    getSearchResults(JSON.stringify(tagsRelacionados[i].name).replace(/['"]+/g, ''));
+                };  
                 }
-            }});
+            });
 }
