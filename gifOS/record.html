@@ -7,7 +7,8 @@
     <script src="https://www.WebRTC-Experiment.com/RecordRTC.js"></script>
   </head>
   <body>
-    <img src="" />
+    <img src="./img/fondo.gif" width="360px" height="240px"/><br>
+
     <button>Record</button>
     <script>
       const apiKey = "CENhLNWgDzlOGLtY8yMGKohU96s8uvK1"
@@ -23,7 +24,7 @@
         });
         let recorder = new RecordRTCPromisesHandler(stream, {
           type: "gif",
-          frameRate: 1,
+          frameRate: 2,
           quality: 10,
           width: 360,
           hidden: 240,
@@ -35,6 +36,13 @@
         let blob = await recorder.getBlob();
         let form = new FormData();
         form.append("file", blob, "myGif.gif");
+        console.log(form);
+
+        imagen.src = URL.createObjectURL(blob);
+      }
+
+      async function guardarVideo() {
+        let form = document.getElementsByTagName("form");
 
         fetch("https://upload.giphy.com/v1/gifs?api_key=CENhLNWgDzlOGLtY8yMGKohU96s8uvK1&username=jrosello",
           {
@@ -50,6 +58,7 @@
 
           });
 
+      }
 /*          id = "KH2oMRiYtlEHpXPGiY";
  
           fetch('http://api.giphy.com/v1/gifs/gif_id=' + id + '&api_key=' + apiKey)
@@ -67,7 +76,6 @@
             console.log(muchosGifs);
             });
 */
-      }
     </script>
   </body>
 </html>
