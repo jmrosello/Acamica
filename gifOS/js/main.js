@@ -5,7 +5,7 @@ botonBuscar.onclick = () => {
     getSearchResults(inputBuscar.value);
 }
 
-inputBuscar.onkeyup = () => {
+inputBuscar.oninput = () => {
     getTagsRelated(inputBuscar.value);
 }
 const apiKey = "CENhLNWgDzlOGLtY8yMGKohU96s8uvK1"
