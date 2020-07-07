@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script src="https://www.WebRTC-Experiment.com/RecordRTC.js"></script>
+  </head>
+  <body>
+    <img src="" />
+    <button>Record</button>
+    <script>
+      const apiKey = "CENhLNWgDzlOGLtY8yMGKohU96s8uvK1"
+      
+      const boton = document.querySelector("button");
+      const imagen = document.querySelector("img");
+      boton.addEventListener("click", capturarVideo);
+      
+      async function capturarVideo() {
+        let stream = await navigator.mediaDevices.getUserMedia({
+          video: true,
+          audio: false,
+        });
+        let recorder = new RecordRTCPromisesHandler(stream, {
+          type: "gif",
+          frameRate: 1,
+          quality: 10,
+          width: 360,
+          hidden: 240,
+        });
+        recorder.startRecording();
+        const sleep = (m) => new Promise((r) => setTimeout(r, m));
+        await sleep(3000);
+        await recorder.stopRecording();
+        let blob = await recorder.getBlob();
+        let form = new FormData();
+        form.append("file", blob, "myGif.gif");
+
+        fetch("https://upload.giphy.com/v1/gifs?api_key=CENhLNWgDzlOGLtY8yMGKohU96s8uvK1&username=jrosello",
+          {
+            mode: "cors",
+            method: "POST",
+            body: form,
+          }
+        )
+          .then((success) => console.log("todo fue un exito", success))
+          .catch((e) => console.log(e))
+          .then(response =>{
+                console.log(response);
+
+          });
+
+/*          id = "KH2oMRiYtlEHpXPGiY";
+ 
+          fetch('http://api.giphy.com/v1/gifs/gif_id=' + id + '&api_key=' + apiKey)
+        .then(response => {
+            return response.json();
+        })
+        .then(data => {
+            //console.info(data);
+            return data.data;
+        })
+        .catch(error => {
+            return error;
+        })
+        .then(muchosGifs => {
+            console.log(muchosGifs);
+            });
+*/
+      }
+    </script>
+  </body>
+</html>
