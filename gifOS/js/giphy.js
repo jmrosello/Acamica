@@ -52,7 +52,8 @@ function getTrending() {
                 imgResultados[i].append(tituloGif);
                 
                 imgResultados[i].src = JSON.stringify(trendingGifs[i].images.fixed_height.url).replace(/['"]+/g, '');
-                //imgResultados[i].style.height = "298px";
+                
+                let aspectRatio = imgResultados[i].style.width / imgResultados[i].style.height;
                 
                 const slugGif = document.createElement("div");
                 slugGif.innerHTML = JSON.stringify(trendingGifs[i].slug);
