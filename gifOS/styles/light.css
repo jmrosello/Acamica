@@ -1,4 +1,5 @@
-header {
-  width: 100vw;
+header div {
+  background-image: -webkit-gradient(linear, right top, left top, from(#F7C9F3), to(#4180F6));
+  background-image: linear-gradient(270deg, #F7C9F3 0%, #4180F6 100%);
 }
 /*# sourceMappingURL=light.css.map */

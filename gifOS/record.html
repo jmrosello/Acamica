@@ -5,136 +5,48 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
     <script src="https://www.WebRTC-Experiment.com/RecordRTC.js"></script>
+    <style>
+      video {
+        width: 400px;
+        height: 400px;
+        border: 5px solid black;
+      }
+      .video-recording {
+        border: 5px solid red;
+      }
+      button {
+        width: 120px;
+      }
+      #progressBar {
+        border: 1px solid #aaa;
+        color: #fff;
+        width: 295px;
+        height: 20px;
+      }
+      #progress {
+        background-color: #ff0000;
+        height: 20px;
+        display: inline-block;
+      }
+      .container > div {
+        display: inline-block;
+        height: 600px;
+      }
+    </style>
   </head>
   <body>
     <h1>Captura de video a GIF</h1>
     <h2> </h2>
-    <img src="./img/fondo.gif" width="360px" height="240px"/><br>
+    <video width="400px"></video>
+    <div id="progressBar"><span id="progress"></span></div>
+    <button id="play-button">Play Gif ▶️</button>
+    <button id="stop-button">Detener ◻️</button>
 
-    <button class="record">Record</button>
-    <button class="guardarGiphy" disabled>Stop y Guardar en Giphy</button><br>
-    <button class="gifByID">Buscar</button>
-    <script>
-      //Variables globales
-      var recorder;
-      var apiKey = "CENhLNWgDzlOGLtY8yMGKohU96s8uvK1"
-      var username = "jrosello";
-
-      const imagen = document.querySelector("img");
-      
-      const botonRecord = document.querySelector("button.record");
-      const botonGuardar = document.querySelector("button.guardarGiphy");
-      const botonGifByID = document.querySelector("button.gifByID");
-
-      botonRecord.addEventListener("click", capturarVideo);
-      botonGuardar.addEventListener("click", guardarVideo);
-      botonGifByID.addEventListener("click", getGifByID('cluN0NgZTtqRR9nf0e'));
-      
-      function calculateDuration(secs) {
-          var hr = Math.floor(secs / 3600);
-          var min = Math.floor((secs - (hr * 3600)) / 60);
-          var sec = Math.floor(secs*10 - (hr * 36000) - (min * 600))/10;
-
-          if (min < 10) {
-              min = "0" + min;
-          }
-
-          if (sec < 10) {
-              sec = "0" + sec;
-          }
-
-          if(hr <= 0) {
-              return min + ':' + sec;
-          }
-
-          return hr + ':' + min + ':' + sec;
-      }
-
-      async function capturarVideo() {
-        botonRecord.disabled = true;
-        botonGuardar.disabled = false;
-
-        let stream = await navigator.mediaDevices.getUserMedia({
-          video: true,
-          audio: false,
-        });
-        
-        //console.log("EMPIEZA VIDEO");
-
-        recorder = new RecordRTCPromisesHandler(stream, {
-          type: "gif",
-          frameRate: 2,
-          quality: 10,
-          width: 360,
-          hidden: 240,
-          timeSlice: 1000, // pass this parameter
-          onGifRecordingStarted: function() {
-                document.querySelector('h1').innerHTML = 'Captura de video a GIF.<br><strong>Grabación iniciada.</strong>';
-          },
-          onGifPreview: function(gifURL) {
-              imagen.src = gifURL;
-          }
-        });
-        recorder.startRecording();
-
-        dateStarted = new Date().getTime();
-
-        (function looper() {
-            if(!recorder) {
-                return;
-            }
-
-            document.querySelector('h2').innerHTML = 'Duracion grabacion: ' + calculateDuration((new Date().getTime() - dateStarted) / 1000);
-
-            setTimeout(looper, 100);
-        })();
-        //const sleep = (m) => new Promise((r) => setTimeout(r, m));
-        //await sleep(3000);
-      };
-
-      async function guardarVideo() {
-        await recorder.stopRecording();
-        let blob = await recorder.getBlob();
-        let form = new FormData();
-        form.append("file", blob, "myGif.gif");
-        
-        document.querySelector('h1').innerHTML = 'Captura de video a GIF.<br><strong>Grabación Detenida: ' + bytesToSize(blob.size) + '.</strong>';
-        recorder.destroy();
-        recorder = null;
-        imagen.src = URL.createObjectURL(blob);
-
-        respuestaUpload = await fetch("https://upload.giphy.com/v1/gifs?api_key=" + apiKey + "&username=" + username,
-          {
-            mode: "cors",
-            method: "POST",
-            body: form,
-          }
-          )
-          .then((success) => {
-            console.log("todo fue un exito");
-            return success.json();
-          })
-          .catch((e) => console.log(e));
-
-        console.log("id gif=", respuestaUpload.data.id);
-      };
-
-      async function getGifByID(id) {
-        await fetch('https://api.giphy.com/v1/gifs/' + id + '?api_key=' + apiKey)
-        .then(response => {
-            return response.json();
-        })
-        .then(data => {
-            //console.info(data);
-            return data.data;
-        })
-        .catch(error => {
-            return error;
-        })
-        .then(unSoloGif => {
-          console.log("resultado= ", unSoloGif);
-        });
-      }; 
-    </script>
+    <button id="record">Record</button>
+    <button id="guardarGiphy" disabled>Stop</button><br>
+    <button id="upload-button">Subir Gif ⬆️</button>
+    <button id="gifByID">Buscar</button>
+    <img src="."/>
+    <script src="js/record.js"></script>
   </body>
 </html>

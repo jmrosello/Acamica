@@ -1,6 +1,6 @@
 {
     "version": 3,
-    "mappings": "AAAA,AAAA,MAAM,CAAC;EACH,KAAK,EAAE,KAAK;CACf",
+    "mappings": "AAAA,AACI,MADE,CACF,GAAG,CAAC;EACA,gBAAgB,EAAE,iDAAiD;CACtE",
     "sources": [
         "light.scss"
     ],

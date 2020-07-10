@@ -9,22 +9,26 @@
 </head>
 <body>
     <header>
-        <span>¡Bienvenidos/as a Guifos.com! ——————Donde los gifs están.////// Número de visitas: 12.765.803</span>
+        <div>
+            <span>¡Bienvenidos/as a Guifos.com! ——————Donde los gifs están.////// Número de visitas: 12.765.803</span>
+        </div>
         <nav>
-            <img src="">
+            <img class="logo" src="img/gifOF_logo.png">
             <button>Crear Guifos</button>
-            <button>Elegit tema</button>
-            <button>Mis Guifos</button>
+            <button>Elegir tema</button><button><img src="img/dropdown.svg"/></button>
+            <button><u>M</u>is Guifos</button>
         </nav>
     </header>
-    <section>
+    <section class="buscar">
         <div>Buscar</div>
         <div>
-            <input type="text" name="buscar" id="inputBuscar" value="gatitos" size="100">
-            <button id="botonBuscar">BUSCAR</button>
-            <div class="tagSugerido"><button></button></div>
-            <div class="tagSugerido"><button></button></div>
-            <div class="tagSugerido"><button></button></div>
+            <input type="text" name="buscar" id="inputBuscar" placeholder="Busca gifs, hashtags, temas, busca lo que quieras…" size="100">
+            <button id="botonBuscar" disabled="true"><img src="img/lupa_inactive.svg"/>&nbsp;&nbsp;Buscar</button>
+        </div>
+        <div class="buscarSugeridos">
+            <button class="tagSugerido"></button>
+            <button class="tagSugerido"></button>
+            <button class="tagSugerido"></button>
         </div>  
     </section>
     <section class="sugeridos">
@@ -55,20 +59,19 @@
     <section class="resultados">
         <div>Tedencias</div>
         <div class="imgResultados">
-            <img src="."/>
-            <img src="."/>
-            <img src="."/>
-            <img src="."/>
-            <img src="."/>
-            <img src="."/>
-            <img src="."/>
-            <img src="."/>
-            <img src="."/>
-            <img src="."/>
+            <div><img src="."/></div>
+            <div><img src="."/></div>
+            <div><img src="."/></div>
+            <div><img src="."/></div>
+            <div><img src="."/></div>
+            <div><img src="."/></div>
+            <div><img src="."/></div>
+            <div><img src="."/></div>
+            <div><img src="."/></div>
+            <div><img src="."/></div>
         </div>
     </section>
 
-<script src="js/giphy.js"></script>
-<script src="js/main.js"></script>
+<script src="js/index.js"></script>
 </body>
 </html>

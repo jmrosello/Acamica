@@ -1,31 +1,210 @@
 @import url("https://fonts.googleapis.com/css?family=IBM+Plex+Mono|IBM+Plex+Sans&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@400;600&display=swap");
 * {
   margin: 0;
   padding: 0;
   border: none;
 }
 
-.tagSugerido {
-  visibility: hidden;
+body {
+  background-color: #FFF4FD;
 }
 
-.sugeridos {
-  width: 95vw;
+header div {
+  width: 100%;
+  -webkit-box-shadow: 0 1px 0 0 #110038;
+          box-shadow: 0 1px 0 0 #110038;
+  display: -webkit-inline-box;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  height: 23px;
 }
 
-.sugeridos .figSugeridos {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -ms-flex-line-pack: justify;
-      align-content: space-between;
+header div span {
+  margin-left: 7px;
+  color: white;
+  font-size: 12px;
+  letter-spacing: 0;
+  font-family: 'Chakra Petch', sans-serif;
 }
 
-.sugeridos .figSugeridos figure {
+header nav {
+  margin: 34px 140px 35px 97px;
+}
+
+header nav .logo {
+  margin-right: 685px;
+}
+
+header nav button {
+  background: #F7C9F3;
+  border: 1px solid #110038;
+  -webkit-box-shadow: inset -1px -1px 0 0 #997D97, inset 1px 1px 0 0 #FFFFFF;
+          box-shadow: inset -1px -1px 0 0 #997D97, inset 1px 1px 0 0 #FFFFFF;
+  font-family: 'Chakra Petch', sans-serif;
+  font-size: 16px;
+  color: #110038;
+  letter-spacing: 0;
+  text-align: center;
+  line-height: 18px;
+  height: 36px;
+}
+
+header nav button:focus {
+  outline: 1px dotted #110038;
+  outline-offset: -3px;
+}
+
+header nav button:nth-of-type(1) {
+  width: 144px;
+  margin-right: 10px;
+}
+
+header nav button:nth-of-type(2) {
+  width: 131px;
+}
+
+header nav button:nth-of-type(3) {
+  width: 36px;
+  margin-right: 15px;
+  border-left: none;
+}
+
+header nav button:nth-of-type(4) {
+  border: none;
+  -webkit-box-shadow: none;
+          box-shadow: none;
+  background: none;
+}
+
+section.buscar {
+  margin-left: 100px;
+  padding: 3px;
+  width: 1200px;
+}
+
+section.buscar div:first-child {
+  font-family: 'Chakra Petch', sans-serif;
+  font-weight: 600;
+  font-size: 14px;
+  padding: 3px;
+  color: #FFFFFF;
+  letter-spacing: 0;
+  background-image: -webkit-gradient(linear, right top, left top, from(#F7C9F3), to(#4180F6));
+  background-image: linear-gradient(270deg, #F7C9F3 0%, #4180F6 100%);
+}
+
+section.buscar div:nth-child(2) {
+  padding: 12px;
+  background: #E6E6E6;
+  -webkit-box-shadow: inset -2px -2px 0 0 #B4B4B4, inset 2px 2px 0 0 #FFFFFF;
+          box-shadow: inset -2px -2px 0 0 #B4B4B4, inset 2px 2px 0 0 #FFFFFF;
+}
+
+section.buscar div:nth-child(2) input {
+  background: #FFFFFF;
+  border: 1px solid #979797;
+  -webkit-box-shadow: inset -2px -2px 0 0 #E6E6E6, inset 2px 2px 0 0 #000000;
+          box-shadow: inset -2px -2px 0 0 #E6E6E6, inset 2px 2px 0 0 #000000;
+  height: 32px;
+  width: 1025px;
+  padding: 8px 15px;
+  font-size: 16px;
+  font-family: 'Chakra Petch', sans-serif;
+  color: #110038;
+  letter-spacing: 0;
+  line-height: 22px;
+}
+
+section.buscar div:nth-child(2) input:focus {
+  outline: none;
+}
+
+section.buscar div:nth-child(2) button {
+  width: 102px;
+  height: 36px;
+  margin-left: 5px;
+  background: #E6E6E6;
+  border: 1px solid #808080;
+  -webkit-box-shadow: inset -1px -1px 0 0 #B4B4B4, inset 1px 1px 0 0 #FFFFFF;
+          box-shadow: inset -1px -1px 0 0 #B4B4B4, inset 1px 1px 0 0 #FFFFFF;
+  font-family: 'Chakra Petch', sans-serif;
+  font-size: 16px;
+  color: #B4B4B4;
+  letter-spacing: 0;
+  line-height: 18px;
+}
+
+section.buscar div:nth-child(2) button:focus {
+  outline: 1px dotted #110038;
+  outline-offset: -3px;
+}
+
+.buscarSugeridos {
+  background: #E6E6E6;
+  -webkit-box-shadow: inset -2px -2px 0 0 #B4B4B4, inset 2px 2px 0 0 #FFFFFF;
+          box-shadow: inset -2px -2px 0 0 #B4B4B4, inset 2px 2px 0 0 #FFFFFF;
+  display: none;
+  padding: 13px 12px 3px 12px;
+}
+
+.buscarSugeridos .tagSugerido {
+  width: 1057px;
+  height: 38px;
+  padding: 3px 14px;
+  margin-bottom: 10px;
+  background: #F0F0F0;
+  border: 1px solid #808080;
+  -webkit-box-shadow: inset -1px -1px 0 0 #B4B4B4, inset 1px 1px 0 0 #FFFFFF;
+          box-shadow: inset -1px -1px 0 0 #B4B4B4, inset 1px 1px 0 0 #FFFFFF;
+  text-align: left;
+  font-family: 'Chakra Petch', sans-serif;
+  font-size: 16px;
+  color: #110038;
+  letter-spacing: 0;
+  line-height: 22px;
+}
+
+.buscarSugeridos .tagSugerido:focus {
+  background: #DBDBDB;
+  -webkit-box-shadow: inset -1px -1px 0 0 #B4B4B4, inset 1px 1px 0 0 #FFFFFF;
+          box-shadow: inset -1px -1px 0 0 #B4B4B4, inset 1px 1px 0 0 #FFFFFF;
+  outline: 1px dotted #110038;
+  outline-offset: -3px;
+}
+
+section.sugeridos {
+  width: 1200px;
+  margin-left: 100px;
+}
+
+section.sugeridos .figSugeridos {
+  display: -ms-grid;
+  display: grid;
+  grid-auto-flow: row dense;
+  -ms-grid-columns: 1fr 1fr 1fr 1fr;
+      grid-template-columns: 1fr 1fr 1fr 1fr;
+  grid-gap: 16px;
+}
+
+section.sugeridos .figSugeridos figure {
   position: relative;
+  height: 298px;
+  width: 288px;
+  overflow: hidden;
 }
 
-.sugeridos .figSugeridos figure button {
+section.sugeridos .figSugeridos figure img {
+  min-height: 298px;
+  min-width: 288px;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+
+section.sugeridos .figSugeridos figure button {
   color: red;
   position: absolute;
   bottom: 0;
@@ -33,19 +212,31 @@
 }
 
 .resultados {
-  width: 95vw;
+  width: 1200px;
+  margin-left: 100px;
 }
 
 .resultados .imgResultados {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-flex: 0;
-      -ms-flex: 0 0 33%;
-          flex: 0 0 33%;
-  -ms-flex-line-pack: justify;
-      align-content: space-between;
-  -ms-flex-wrap: wrap;
-      flex-wrap: wrap;
+  display: -ms-grid;
+  display: grid;
+  grid-auto-flow: row dense;
+  -ms-grid-columns: 1fr 1fr 1fr 1fr;
+      grid-template-columns: 1fr 1fr 1fr 1fr;
+  grid-gap: 16px;
+}
+
+.resultados .imgResultados div {
+  height: 298px;
+  width: 288px;
+  overflow: hidden;
+}
+
+.resultados .imgResultados div img {
+  min-height: 298px;
+  min-width: 288px;
+  -o-object-fit: cover;
+     object-fit: cover;
+  -o-object-position: 50% 50%;
+     object-position: 50% 50%;
 }
 /*# sourceMappingURL=styles.css.map */
