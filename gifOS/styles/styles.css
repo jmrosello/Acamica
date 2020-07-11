@@ -32,7 +32,7 @@ header div span {
 }
 
 header nav {
-  margin: 40px auto 20px 98px;
+  margin: 40px auto 23px 98px;
   position: relative;
 }
 
@@ -78,6 +78,10 @@ header nav button:nth-of-type(3) {
   border-left: none;
 }
 
+header nav button:nth-of-type(3) img {
+  margin-bottom: 2px;
+}
+
 header nav button:nth-of-type(4) {
   margin-left: 345px;
   margin-top: 3px;
@@ -88,9 +92,11 @@ header nav button:nth-of-type(4) {
 }
 
 section.buscar {
-  margin-left: 100px;
+  margin-left: 99px;
   padding: 3px;
-  width: 1200px;
+  width: 1194px;
+  -webkit-box-shadow: inset -2px -2px 0 0 #B4B4B4, inset 2px 2px 0 0 #FFFFFF;
+          box-shadow: inset -2px -2px 0 0 #B4B4B4, inset 2px 2px 0 0 #FFFFFF;
 }
 
 section.buscar div:first-child {
@@ -106,10 +112,8 @@ section.buscar div:first-child {
 }
 
 section.buscar div:nth-child(2) {
-  padding: 11px;
+  padding: 11px 11px 9px 11px;
   background: #E6E6E6;
-  -webkit-box-shadow: inset -2px -2px 0 0 #B4B4B4, inset 2px 2px 0 0 #FFFFFF;
-          box-shadow: inset -2px -2px 0 0 #B4B4B4, inset 2px 2px 0 0 #FFFFFF;
 }
 
 section.buscar div:nth-child(2) input {
@@ -117,9 +121,9 @@ section.buscar div:nth-child(2) input {
   border: 1px solid #979797;
   -webkit-box-shadow: inset -2px -2px 0 0 #E6E6E6, inset 2px 2px 0 0 #000000;
           box-shadow: inset -2px -2px 0 0 #E6E6E6, inset 2px 2px 0 0 #000000;
-  height: 30px;
+  height: 31px;
   width: 1025px;
-  padding: 8px 15px;
+  padding: 8px 16px;
   font-size: 16px;
   font-family: 'Chakra Petch', sans-serif;
   color: #110038;
@@ -132,9 +136,9 @@ section.buscar div:nth-child(2) input:focus {
 }
 
 section.buscar div:nth-child(2) button {
-  width: 102px;
-  height: 36px;
-  margin-left: 5px;
+  width: 104px;
+  height: 38px;
+  margin-left: 2px;
   background: #E6E6E6;
   border: 1px solid #808080;
   -webkit-box-shadow: inset -1px -1px 0 0 #B4B4B4, inset 1px 1px 0 0 #FFFFFF;
@@ -184,14 +188,8 @@ section.buscar div:nth-child(2) button:focus {
   outline-offset: -3px;
 }
 
-section.sugeridos {
-  width: 1200px;
-  margin-top: 63px;
-  margin-left: 100px;
-}
-
-section.sugeridos .hoy {
-  height: 23px;
+.hoy {
+  height: 24px;
   background: #FFFAFE;
   border: 1px solid #E6BBE2;
   -webkit-box-shadow: inset -2px -2px 0 0 #E6DCE4, inset 2px 2px 0 0 #80687D;
@@ -203,6 +201,12 @@ section.sugeridos .hoy {
   padding-left: 7px;
   padding-top: 7px;
   margin-bottom: 16px;
+}
+
+section.sugeridos {
+  width: 1200px;
+  margin-top: 63px;
+  margin-left: 99px;
 }
 
 section.sugeridos .figSugeridos {
@@ -232,8 +236,19 @@ section.sugeridos .figSugeridos figure figcaption {
   font-size: 14px;
   color: #FFFFFF;
   letter-spacing: 0;
-  height: 24px;
+  height: 21px;
   margin: 3px 4px;
+  padding-top: 3px;
+}
+
+section.sugeridos .figSugeridos figure figcaption button {
+  width: 16px;
+  height: 14px;
+}
+
+section.sugeridos .figSugeridos figure figcaption button img {
+  width: 16px;
+  height: 14px;
 }
 
 section.sugeridos .figSugeridos figure img {
@@ -241,20 +256,20 @@ section.sugeridos .figSugeridos figure img {
   min-width: 280px;
   -o-object-fit: cover;
      object-fit: cover;
-  margin-left: 5px;
+  margin-left: 4px;
   margin-bottom: 1px;
 }
 
 section.sugeridos .figSugeridos figure button {
   position: absolute;
-  bottom: 18px;
-  left: 14px;
+  bottom: 19px;
+  left: 12px;
   width: 81px;
   height: 34px;
   background: #4180F6;
   border: 1px solid #4C2F99;
-  -webkit-box-shadow: inset -2px -2px 0 0 #284F99, inset 2px 2px 0 0 #FFFFFF;
-          box-shadow: inset -2px -2px 0 0 #284F99, inset 2px 2px 0 0 #FFFFFF;
+  -webkit-box-shadow: inset -2px -2px 0 0 #284F99, inset 1px 1px 0 0 #FFFFFF;
+          box-shadow: inset -2px -2px 0 0 #284F99, inset 1px 1px 0 0 #FFFFFF;
   font-family: 'Chakra Petch', sans-serif;
   font-size: 14px;
   color: #FFFFFF;
@@ -265,7 +280,11 @@ section.sugeridos .figSugeridos figure button {
 
 .resultados {
   width: 1200px;
-  margin-left: 100px;
+  margin-left: 99px;
+}
+
+.resultados .hoy {
+  margin-top: 64px;
 }
 
 .resultados .imgResultados {

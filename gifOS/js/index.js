@@ -22,7 +22,7 @@ inputBuscar.oninput = () => {
     }
 }
 const API_KEY = "CENhLNWgDzlOGLtY8yMGKohU96s8uvK1"
-const GIF_LIMIT = "10"
+const GIF_LIMIT = "12"
 let search;
 getTrending();
 getTrendingSearch();
@@ -39,14 +39,15 @@ async function getSearchResults(search) {
             return error;
         })
         .then(muchosGifs => {
-            
+            document.querySelector(".resultados .hoy").innerHTML = search[0].toUpperCase() + search.slice(1) + " (resultados)";
+            inputBuscar.value = search[0].toUpperCase() + search.slice(1);
             placeGifs(muchosGifs);
         });
 }
 
 async function placeGifs(gifs) {
     let divContainerResultados = document.querySelector(".imgResultados");
-    divContainerResultados.innerHTML = '';
+    divContainerResultados.innerHTML = "";
 
     for (let i = 0 ; i < gifs.length; i++) {
         let divResultado = document.createElement("div");
@@ -60,7 +61,7 @@ async function placeGifs(gifs) {
         imgResultado.src = await JSON.stringify(gifs[i].images.fixed_height.url).replace(/['"]+/g, '');
 
         imgResultado.onload = await function() {
-            if ((gifs[i].images.fixed_height.width / gifs[i].images.fixed_height.height) > 1.33) {
+            if ((gifs[i].images.fixed_height.width / gifs[i].images.fixed_height.height) > 1.4) {
                 divResultado.style.gridColumn = "span 2";
                 divResultado.style.width = "592px";
             } else {
@@ -119,8 +120,9 @@ function getTrendingSearch() {
                     .then(unSoloGif => {
                         imgSugeridas[i].src = JSON.stringify(unSoloGif[0].images.fixed_height.url).replace(/['"]+/g, '');
                         imgSugeridas[i].style.objectPosition = "center";
-                        imgSugeridas[i].style.width = "100%";
-                        imgSugeridas[i].parentNode.firstElementChild.innerHTML = "#" + search2;
+                        imgSugeridas[i].style.width = "97%";
+                        console.log(imgSugeridas[i].parentNode.firstElementChild);
+                        imgSugeridas[i].parentNode.firstElementChild.innerHTML = "#" + search2[0].toUpperCase() + search2.slice(1) + "<button><img src='img/button3.svg'/></button>";
                         imgSugeridas[i].parentNode.lastElementChild.onclick = () => {
                             getSearchResults(search2);
                         };
