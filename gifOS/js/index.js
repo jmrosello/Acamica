@@ -1,10 +1,21 @@
 let inputBuscar = document.getElementById("inputBuscar");
 let botonBuscar = document.getElementById("botonBuscar");
 let tagRelated = document.querySelectorAll(".tagSugerido");
+let busquedas = [];
+
+if(localStorage.getItem("busquedas")) {
+    let busquedas = JSON.parse(localStorage.getItem("busquedas"));    
+    busquedas.forEach(item => {
+        console.log(item);
+    })
+}
 
 botonBuscar.onclick = () => {
+    busquedas.push(inputBuscar.value);
+    localStorage.setItem("busquedas",JSON.stringify(busquedas));
     getSearchResults(inputBuscar.value);
     tagRelated[0].parentElement.style.display = "none";
+    document.querySelector(".sugeridos").style.display = "none";
 }
 
 inputBuscar.oninput = () => {
@@ -51,12 +62,23 @@ async function placeGifs(gifs) {
 
     for (let i = 0 ; i < gifs.length; i++) {
         let divResultado = document.createElement("div");
+        let figResultado = document.createElement("figure");
         let imgResultado = document.createElement("img");
-        divResultado.append(imgResultado);
+        let slugGif = document.createElement("figcaption");
+        let slugHash = "";
 
-        let tituloGif = document.createElement("span");
-        tituloGif.innerHTML = JSON.stringify(gifs[i].title);
-        imgResultado.append(tituloGif);
+        figResultado.append(slugGif);
+        figResultado.append(imgResultado)
+        divResultado.append(figResultado);
+
+        slugArray = JSON.stringify(gifs[i].slug).replace(/['"]+/g, '').split('-');
+        slugArray.pop();
+        slugArray.forEach(item => {
+            slugHash = slugHash + " #" + item;
+        })
+
+        slugGif.innerHTML = slugHash;
+        slugGif.style.display = "none";
 
         imgResultado.src = await JSON.stringify(gifs[i].images.fixed_height.url).replace(/['"]+/g, '');
 
@@ -68,15 +90,27 @@ async function placeGifs(gifs) {
                 divResultado.style.gridColumn = "span 1";
                 divResultado.style.width = "288px";
             }
+            divResultado.style.height = "298px";
             imgResultado.style.width = "100%";
             imgResultado.style.objectPosition = "center";
         };
 
-        let slugGif = document.createElement("div");
-        slugGif.innerHTML = JSON.stringify(gifs[i].slug);
-        imgResultado.append(slugGif);
-
         divContainerResultados.append(divResultado);
+
+        divResultado.onmouseover = function() {
+            this.classList.add('mouseOver');
+            slugGif.style.display = "inline-block";
+            this.style.height = (parseInt(divResultado.style.height) - 6) + "px";
+            console.log(this.style.height);
+            this.style.width = (parseInt(divResultado.style.width) - 6) + "px";
+        };
+        divResultado.onmouseout = function() {
+            this.classList.remove('mouseOver');
+            slugGif.style.display = "none";
+            this.style.height = (parseInt(divResultado.style.height) + 6) + "px";
+            this.style.width = (parseInt(divResultado.style.width) + 6) + "px";
+        };
+        
     }
 }
 
@@ -94,24 +128,21 @@ function getTrendingSearch() {
             return response.json();
         })
         .then(data => {
-            //console.info(data);
             return data.data;
         })
         .catch(error => {
             return error;
         })
         .then(trendingSearch => {
-            //console.log(trendingSearch);
             let imgSugeridas = document.querySelectorAll(".imgSugeridos");
             
-            for (let i = 0 ; i < imgSugeridas.length; i++) {
+            for (let i = 0 ; i < 8; i++) {
                 let search2 = JSON.stringify(trendingSearch[i]).replace(/['"]+/g, '')
                 let unSearchGif = fetch('http://api.giphy.com/v1/gifs/search?limit=1&q=' + search2 + '&api_key=' + API_KEY)
                     .then(response => {
                         return response.json();
                     })
                     .then(data => {
-                        //console.info(data);
                         return data.data;
                     })
                     .catch(error => {
@@ -121,10 +152,20 @@ function getTrendingSearch() {
                         imgSugeridas[i].src = JSON.stringify(unSoloGif[0].images.fixed_height.url).replace(/['"]+/g, '');
                         imgSugeridas[i].style.objectPosition = "center";
                         imgSugeridas[i].style.width = "97%";
-                        console.log(imgSugeridas[i].parentNode.firstElementChild);
-                        imgSugeridas[i].parentNode.firstElementChild.innerHTML = "#" + search2[0].toUpperCase() + search2.slice(1) + "<button><img src='img/button3.svg'/></button>";
+                        let botonCerrar = document.createElement("button");
+                        let imgCerrar = document.createElement("img");
+                        imgCerrar.src = "img/button3.svg"
+                        botonCerrar.append(imgCerrar);
+
+                        imgSugeridas[i].parentNode.firstElementChild.innerHTML = "#" + search2[0].toUpperCase() + search2.slice(1);
+                        imgSugeridas[i].parentNode.firstElementChild.append(botonCerrar);
                         imgSugeridas[i].parentNode.lastElementChild.onclick = () => {
                             getSearchResults(search2);
+                            imgSugeridas[i].parentNode.parentNode.parentNode.style.display = "none";
+                        };
+
+                        botonCerrar.onclick = () => {
+                            botonCerrar.parentNode.parentNode.style.display = "none";
                         };
                     });
             }
@@ -137,14 +178,12 @@ function getTagsRelated(search) {
             return response.json();
         })
         .then(data => {
-            //console.info(data);
             return data.data;
         })
         .catch(error => {
             return error;
         })
         .then(tagsRelacionados => {
-            //console.log(tagsRelacionados);
             tagRelated[0].parentElement.style.display = "inline-block";
 
             for (let i = 0 ; i < 3; i++) {
@@ -154,6 +193,7 @@ function getTagsRelated(search) {
                 tagRelated[i].onclick = () => {
                     getSearchResults(JSON.stringify(tagsRelacionados[i].name).replace(/['"]+/g, ''));
                     tagRelated[0].parentElement.style.display = "none";
+                    document.querySelector(".sugeridos").style.display = "none";
                 };  
                 }
             });
