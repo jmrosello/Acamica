@@ -1,9 +1,0 @@
-{
-    "version": 3,
-    "mappings": "AAAA,AACI,MADE,CACF,GAAG,CAAC;EACA,gBAAgB,EAAE,iDAAiD;CACtE",
-    "sources": [
-        "light.scss"
-    ],
-    "names": [],
-    "file": "light.css"
-}

@@ -1,5 +1,16 @@
 @import url("https://fonts.googleapis.com/css?family=IBM+Plex+Mono|IBM+Plex+Sans&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@400;600&display=swap");
+:root {
+  --rosa: #F7C9F3;
+  --rosa-focus: #E6BBE2;
+  --azul: #4180F6;
+  --azul-focus: #3A72DB;
+  --fondo: #FFF4FD;
+  --gris: #E6E6E6;
+  --gris-shadow: #B4B4B4;
+  --gris-tag: #F0F0F0;
+}
+
 * {
   margin: 0;
   padding: 0;
@@ -7,11 +18,13 @@
 }
 
 body {
-  background-color: #FFF4FD;
+  background-color: var(--fondo);
 }
 
 header div {
   width: 100%;
+  background-image: -webkit-gradient(linear, right top, left top, from(var(--rosa)), to(var(--azul)));
+  background-image: linear-gradient(270deg, var(--rosa) 0%, var(--azul) 100%);
   -webkit-box-shadow: 0 1px 0 0 #110038;
           box-shadow: 0 1px 0 0 #110038;
   display: -webkit-inline-box;
@@ -42,7 +55,7 @@ header nav .logo {
 
 header nav button {
   position: absolute;
-  background: #F7C9F3;
+  background: var(--rosa);
   border: 1px solid #110038;
   -webkit-box-shadow: inset -1px -1px 0 0 #997D97, inset 1px 1px 0 0 #FFFFFF;
           box-shadow: inset -1px -1px 0 0 #997D97, inset 1px 1px 0 0 #FFFFFF;
@@ -58,13 +71,13 @@ header nav button {
 header nav button:focus {
   outline: 1px dotted #110038;
   outline-offset: -2px;
-  background-color: #E6BBE2;
+  background-color: var(--rosa-focus);
 }
 
 header nav button:hover {
   outline: 1px dotted #110038;
   outline-offset: -2px;
-  background-color: #E6BBE2;
+  background-color: var(--rosa-focus);
 }
 
 header nav button:nth-of-type(1) {
@@ -102,8 +115,8 @@ section.buscar {
   margin-left: 99px;
   padding: 2px;
   width: 1194px;
-  -webkit-box-shadow: inset -2px -2px 0 0 #B4B4B4, inset 2px 2px 0 0 #FFFFFF;
-          box-shadow: inset -2px -2px 0 0 #B4B4B4, inset 2px 2px 0 0 #FFFFFF;
+  -webkit-box-shadow: inset -2px -2px 0 0 var(--gris-shadow), inset 2px 2px 0 0 #FFFFFF;
+          box-shadow: inset -2px -2px 0 0 var(--gris-shadow), inset 2px 2px 0 0 #FFFFFF;
 }
 
 section.buscar div:first-child {
@@ -114,20 +127,20 @@ section.buscar div:first-child {
   color: #FFFFFF;
   letter-spacing: 0;
   height: 18px;
-  background-image: -webkit-gradient(linear, right top, left top, from(#F7C9F3), to(#4180F6));
-  background-image: linear-gradient(270deg, #F7C9F3 0%, #4180F6 100%);
+  background-image: -webkit-gradient(linear, right top, left top, from(var(--rosa)), to(var(--azul)));
+  background-image: linear-gradient(270deg, var(--rosa) 0%, var(--azul) 100%);
 }
 
 section.buscar div:nth-child(2) {
   padding: 11px 11px 9px 11px;
-  background: #E6E6E6;
+  background: var(--gris);
 }
 
 section.buscar div:nth-child(2) input {
   background: #FFFFFF;
   border: 1px solid #979797;
-  -webkit-box-shadow: inset -2px -2px 0 0 #E6E6E6, inset 2px 2px 0 0 #000000;
-          box-shadow: inset -2px -2px 0 0 #E6E6E6, inset 2px 2px 0 0 #000000;
+  -webkit-box-shadow: inset -2px -2px 0 0 var(--gris), inset 2px 2px 0 0 #000000;
+          box-shadow: inset -2px -2px 0 0 var(--gris), inset 2px 2px 0 0 #000000;
   height: 31px;
   width: 1025px;
   padding: 8px 16px;
@@ -146,13 +159,13 @@ section.buscar div:nth-child(2) button {
   width: 104px;
   height: 38px;
   margin-left: 2px;
-  background: #E6E6E6;
+  background: var(--gris);
   border: 1px solid #808080;
-  -webkit-box-shadow: inset -1px -1px 0 0 #B4B4B4, inset 1px 1px 0 0 #FFFFFF;
-          box-shadow: inset -1px -1px 0 0 #B4B4B4, inset 1px 1px 0 0 #FFFFFF;
+  -webkit-box-shadow: inset -1px -1px 0 0 var(--gris-shadow), inset 1px 1px 0 0 #FFFFFF;
+          box-shadow: inset -1px -1px 0 0 var(--gris-shadow), inset 1px 1px 0 0 #FFFFFF;
   font-family: 'Chakra Petch', sans-serif;
   font-size: 16px;
-  color: #B4B4B4;
+  color: var(--gris-shadow);
   letter-spacing: 0;
   line-height: 18px;
 }
@@ -168,11 +181,14 @@ section.buscar div:nth-child(2) button:hover {
 }
 
 .buscarSugeridos {
-  background: #E6E6E6;
-  -webkit-box-shadow: inset -2px -2px 0 0 #B4B4B4, inset 2px 2px 0 0 #FFFFFF;
-          box-shadow: inset -2px -2px 0 0 #B4B4B4, inset 2px 2px 0 0 #FFFFFF;
+  background: var(--gris);
+  -webkit-box-shadow: inset -2px -2px 0 0 #707070, inset 2px 2px 0 0 #FFFFFF;
+          box-shadow: inset -2px -2px 0 0 #707070, inset 2px 2px 0 0 #FFFFFF;
   display: none;
-  padding: 13px 12px 2px 12px;
+  padding: 13px 10px 2px 10px;
+  width: 1180px;
+  z-index: 1;
+  left: 99px;
 }
 
 .buscarSugeridos .tagSugerido {
@@ -180,10 +196,10 @@ section.buscar div:nth-child(2) button:hover {
   height: 38px;
   padding: 2px 14px;
   margin-bottom: 10px;
-  background: #F0F0F0;
+  background: var(--gris-tag);
   border: 1px solid #808080;
-  -webkit-box-shadow: inset -1px -1px 0 0 #B4B4B4, inset 1px 1px 0 0 #FFFFFF;
-          box-shadow: inset -1px -1px 0 0 #B4B4B4, inset 1px 1px 0 0 #FFFFFF;
+  -webkit-box-shadow: inset -1px -1px 0 0 var(--gris-shadow), inset 1px 1px 0 0 #FFFFFF;
+          box-shadow: inset -1px -1px 0 0 var(--gris-shadow), inset 1px 1px 0 0 #FFFFFF;
   text-align: left;
   font-family: 'Chakra Petch', sans-serif;
   font-size: 16px;
@@ -194,16 +210,16 @@ section.buscar div:nth-child(2) button:hover {
 
 .buscarSugeridos .tagSugerido:focus {
   background: #DBDBDB;
-  -webkit-box-shadow: inset -1px -1px 0 0 #B4B4B4, inset 1px 1px 0 0 #FFFFFF;
-          box-shadow: inset -1px -1px 0 0 #B4B4B4, inset 1px 1px 0 0 #FFFFFF;
+  -webkit-box-shadow: inset -1px -1px 0 0 var(--gris-shadow), inset 1px 1px 0 0 #FFFFFF;
+          box-shadow: inset -1px -1px 0 0 var(--gris-shadow), inset 1px 1px 0 0 #FFFFFF;
   outline: 1px dotted #110038;
   outline-offset: -2px;
 }
 
 .buscarSugeridos .tagSugerido:hover {
   background: #DBDBDB;
-  -webkit-box-shadow: inset -1px -1px 0 0 #B4B4B4, inset 1px 1px 0 0 #FFFFFF;
-          box-shadow: inset -1px -1px 0 0 #B4B4B4, inset 1px 1px 0 0 #FFFFFF;
+  -webkit-box-shadow: inset -1px -1px 0 0 var(--gris-shadow), inset 1px 1px 0 0 #FFFFFF;
+          box-shadow: inset -1px -1px 0 0 var(--gris-shadow), inset 1px 1px 0 0 #FFFFFF;
   outline: 1px dotted #110038;
   outline-offset: -2px;
 }
@@ -211,7 +227,7 @@ section.buscar div:nth-child(2) button:hover {
 .hoy {
   height: 24px;
   background: #FFFAFE;
-  border: 1px solid #E6BBE2;
+  border: 1px solid var(--rosa-focus);
   -webkit-box-shadow: inset -2px -2px 0 0 #E6DCE4, inset 2px 2px 0 0 #80687D;
           box-shadow: inset -2px -2px 0 0 #E6DCE4, inset 2px 2px 0 0 #80687D;
   font-family: 'Chakra Petch', sans-serif;
@@ -245,14 +261,14 @@ section.sugeridos .figSugeridos figure {
   height: 313px;
   width: 288px;
   overflow: hidden;
-  background: #E6E6E6;
-  -webkit-box-shadow: inset -2px -2px 0 0 #B4B4B4, inset 2px 2px 0 0 #FFFFFF;
-          box-shadow: inset -2px -2px 0 0 #B4B4B4, inset 2px 2px 0 0 #FFFFFF;
+  background: var(--gris);
+  -webkit-box-shadow: inset -2px -2px 0 0 var(--gris-shadow), inset 2px 2px 0 0 #FFFFFF;
+          box-shadow: inset -2px -2px 0 0 var(--gris-shadow), inset 2px 2px 0 0 #FFFFFF;
 }
 
 section.sugeridos .figSugeridos figure figcaption {
-  background-image: -webkit-gradient(linear, right top, left top, from(#F7C9F3), to(#4180F6));
-  background-image: linear-gradient(270deg, #F7C9F3 0%, #4180F6 100%);
+  background-image: -webkit-gradient(linear, right top, left top, from(var(--rosa)), to(var(--azul)));
+  background-image: linear-gradient(270deg, var(--rosa) 0%, var(--azul) 100%);
   font-family: 'Chakra Petch', sans-serif;
   font-weight: 600;
   font-size: 14px;
@@ -309,7 +325,7 @@ section.sugeridos .figSugeridos figure img {
   left: 12px;
   width: 81px;
   height: 34px;
-  background: #4180F6;
+  background: var(--azul);
   border: 1px solid #4C2F99;
   -webkit-box-shadow: inset -2px -2px 0 0 #284F99, inset 1px 1px 0 0 #FFFFFF;
           box-shadow: inset -2px -2px 0 0 #284F99, inset 1px 1px 0 0 #FFFFFF;
@@ -324,17 +340,20 @@ section.sugeridos .figSugeridos figure img {
 .verMas:focus {
   outline: 1px dotted #110038;
   outline-offset: -2px;
-  background-color: #3A72DB;
+  background-color: var(--azul-focus);
 }
 
 .verMas:hover {
   outline: 1px dotted #110038;
   outline-offset: -2px;
-  background-color: #3A72DB;
+  background-color: var(--azul-focus);
 }
 
 .busquedas {
   display: none;
+  margin-left: 99px;
+  padding: 12px 2px 2px 2px;
+  width: 1194px;
 }
 
 .resultados {
@@ -372,15 +391,15 @@ section.sugeridos .figSugeridos figure img {
 
 .mouseOver {
   border: 2px;
-  -webkit-box-shadow: inset -2px -2px 0 0 #B4B4B4, inset 2px 2px 0 0 #FFFFFF;
-          box-shadow: inset -2px -2px 0 0 #B4B4B4, inset 2px 2px 0 0 #FFFFFF;
+  -webkit-box-shadow: inset -2px -2px 0 0 var(--gris-shadow), inset 2px 2px 0 0 #FFFFFF;
+          box-shadow: inset -2px -2px 0 0 var(--gris-shadow), inset 2px 2px 0 0 #FFFFFF;
   padding: 3px;
 }
 
 .mouseOver figure figcaption {
-  position: relative;
-  background-image: -webkit-gradient(linear, right top, left top, from(#F7C9F3), to(#4180F6));
-  background-image: linear-gradient(270deg, #F7C9F3 0%, #4180F6 100%);
+  position: static;
+  background-image: -webkit-gradient(linear, right top, left top, from(var(--rosa)), to(var(--azul)));
+  background-image: linear-gradient(270deg, var(--rosa) 0%, var(--azul) 100%);
   font-family: 'Chakra Petch', sans-serif;
   font-weight: 600;
   font-size: 14px;
@@ -391,5 +410,10 @@ section.sugeridos .figSugeridos figure img {
   overflow: hidden;
   margin: 0px;
   padding: 0px;
+}
+
+.mouseOver figure img {
+  min-width: 270px !important;
+  min-height: 282px !important;
 }
 /*# sourceMappingURL=styles.css.map */

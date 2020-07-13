@@ -154,7 +154,7 @@ async function guardarVideo() {
 async function getGifByID(id) {
   respuestaGifID = await fetch('https://api.giphy.com/v1/gifs/' + id + '?api_key=' + apiKey)
   gifJson = await respuestaGifID.json();
-  imagen.src = URL.createObjectURL(gifJson.data);
+  imagen.src = await JSON.stringify(gifJson.data.images.fixed_height.url).replace(/['"]+/g, '');
 }; 
 
 mostrarVideo();
