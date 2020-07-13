@@ -1,0 +1,61 @@
+.container {
+  margin: 22.5vw 5vw 0 5vw;
+}
+
+.separador {
+  display: block;
+}
+
+.boton {
+  margin-top: 12vw;
+}
+
+.uno {
+  height: 1190px;
+}
+
+.podcasts {
+  margin: 27.5vw 2.5vw 0 2.5vw;
+}
+
+iframe {
+  width: 95vw;
+}
+
+.phone {
+  margin-top: 3rem;
+  > img {
+      margin-left: -6.25vw;
+      width: 112.5vw;
+  }
+  
+}
+
+.deDondeVenimos{
+  margin: 27.5px 5vw 0 5vw;
+}
+  
+.fotos {
+  flex-direction: column;
+}
+
+.temas {
+  > label {
+    margin: .7rem 5vw 50px 5vw;
+  }
+}
+  
+.novedades {
+  margin-top: 50px;
+  > h1 {
+    margin-left: 5%;
+    margin-right: 5%;
+  }
+  > .boton {
+    margin: 40px 5vw 0 5vw;
+  }
+}
+
+footer {
+  height: 6rem;
+}

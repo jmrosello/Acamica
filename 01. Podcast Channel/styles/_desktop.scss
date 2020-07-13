@@ -1,0 +1,198 @@
+  .logo {
+    width: 36px;
+  }
+  
+  header {
+    padding: 0 0 0 100px;
+    width: calc(100% - 100px);
+    height: 80px;
+  }
+  
+  #menuHamburger {
+      display: none;
+  }
+
+  nav {
+    position: relative;
+    display: block;
+    margin: 0 7vw 0 50vw;
+    ol {
+        flex-direction: row;
+        justify-content: space-between;
+    }
+
+    a {
+        color:#060A24;
+        line-height: 28px;
+        letter-spacing: 0;
+    }
+}
+  
+.container {
+  display: inline-block;
+  margin: 200px auto 0.3vw 200px;
+  
+  p {
+      height: 48px;
+      width: 628px;
+    }
+}
+
+  h1 {
+    font-size: 64px;
+    line-height: 84px;
+  }
+  
+  p {
+    font-size: 16px;
+    line-height: 24px;
+  }
+  
+  .azul {
+    color:#0000EC;
+  }
+
+  .boton {
+    margin-top: 3rem;
+    height: 3.5rem;
+    width: 226px;
+    font-size: 18px;
+    line-height: 24px;
+ }
+
+.uno {
+  margin-top: 5.5vw;
+  height: 900px;
+}
+
+.podcasts {
+  margin: 12.85vw 0 0 0;
+  width: 100%;
+}
+
+.spoti {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+  padding: 0 3% 0 3%;
+}
+
+h1.podcastsFonts {
+  font-size: 48px;
+  line-height: 62px;
+  margin-left: 200px;
+  margin-bottom: 26px;
+}
+
+iframe {
+  width: 40.56vw;
+  margin-bottom: 4.5rem;
+}
+
+.agrupador {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.phone {
+  overflow: auto;
+  > img {
+      margin-left: 14vw;
+      width: auto;
+      height: 660px;
+  }
+}
+
+.deDondeVenimos{
+    margin: 190px 0 0 0;
+    h1 {
+      width: 50vw;
+      font-size: 48px;
+      line-height: 62px;
+    }
+    p {
+        font-size: 16px;
+        line-height: 24px;
+        width: 32vw;
+        margin-top: 1rem;
+        margin-bottom: 20px;
+        br {
+          margin-top: 0.2rem;
+        }
+      }
+  }
+  
+  .invitados h1 {
+    margin: 1em 0 1rem 200px;
+    font-size: 48px;
+    line-height: 62px;
+  }
+  
+  .fotos {
+    flex-direction: row;
+    flex-wrap: wrap;
+    img {
+        width: 33.33vw;
+      }
+  }
+  
+  
+  .nuestrosTemas {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    > h1{
+        margin: 50px 0 3.5rem 200px;
+        font-size: 48px;
+        line-height: 62px;
+        width: 90vw;
+    }
+  }
+
+  .temas {
+    width: 18vw;
+    > label {
+      margin: 0 1.25rem auto 1.25rem;
+
+    }
+    > img {
+        width: initial;
+        margin-top: 0;
+        margin-bottom: 1rem;
+    }
+  }
+  
+  .novedades {
+    height: auto;
+    margin-top: 50px;
+    padding: 100px 0 1px 0;
+    > .boton {
+        margin: 50px auto 150px auto;
+        width: 345px;
+    }
+    > h1 {
+        margin-top: 100px;
+        font-size: 48px;
+        line-height: 62px;
+    }
+  }
+
+  footer {
+      padding: 0 5vw 0 5vw;
+      width: 90vw;
+      height: 6rem;
+      display: flex;
+      justify-content: space-between;
+      flex-direction: row;
+      p {
+        margin: 2rem;
+      }
+      .iconos {
+        align-items: initial;
+        margin: 2rem;
+        font-size: 18px;
+      }
+  }

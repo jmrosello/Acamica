@@ -1,0 +1,20 @@
+$breakpoint-celular: 480px;
+$breakpoint-tablet: 768px;
+$breakpoint-desktop: 1024px;
+@import url('https://fonts.googleapis.com/css?family=IBM+Plex+Mono|IBM+Plex+Sans&display=swap');
+
+@import '_comun.scss';
+
+@media (max-width: $breakpoint-celular) {
+    @import '_responsive.scss';
+    @import '_responsive_celular.scss';
+}
+
+@media (min-width: $breakpoint-celular + 1) and (max-width: $breakpoint-desktop) {
+    @import '_responsive.scss';
+    @import '_responsive_tablet.scss';
+}
+
+@media (min-width: $breakpoint-desktop + 1) {
+    @import '_desktop.scss';
+}

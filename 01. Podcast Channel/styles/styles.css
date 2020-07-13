@@ -1,0 +1,967 @@
+@import url("https://fonts.googleapis.com/css?family=IBM+Plex+Mono|IBM+Plex+Sans&display=swap");
+* {
+  margin: 0;
+  padding: 0;
+  border: none;
+}
+
+html, body, header {
+  overflow-x: hidden;
+}
+
+body {
+  background-color: white;
+  font-size: 16px;
+  width: 100vw;
+}
+
+img {
+  width: 100%;
+}
+
+header {
+  position: fixed;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  text-align: center;
+  z-index: 10;
+  background-color: white;
+}
+
+nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  text-align: left;
+}
+
+nav ol {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+nav li {
+  list-style: none;
+}
+
+nav a {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 16px;
+  letter-spacing: 0;
+  text-decoration: none;
+}
+
+nav a:hover {
+  color: #00F3BB;
+  text-decoration: line-through;
+}
+
+nav a:active {
+  color: rgba(6, 10, 36, 0.56);
+  text-decoration: line-through;
+}
+
+h1 {
+  font-family: 'IBM Plex Sans', sans-serif;
+  font-weight: 400;
+  letter-spacing: 0;
+  color: #060A24;
+}
+
+p {
+  font-family: 'IBM Plex Mono', monospace;
+  font-weight: 400;
+  letter-spacing: 0;
+  color: #060A24;
+  text-align: justify;
+  text-justify: inter-word;
+}
+
+.tachado {
+  text-decoration: line-through;
+}
+
+.boton {
+  background-color: #00F3BB;
+  font-family: 'IBM Plex Mono', monospace;
+  color: #060A24;
+  letter-spacing: 0;
+  text-align: center;
+  font-weight: 600;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.boton:hover {
+  color: white;
+  background-image: linear-gradient(225deg, #0000FE 0%, #00F0B8 100%);
+  cursor: pointer;
+}
+
+.podcastsFondo {
+  position: absolute;
+  width: 100%;
+  background-image: linear-gradient(225deg, #0000FF 0%, #0000A3 100%);
+  -webkit-transform: skewY(-6deg);
+          transform: skewY(-6deg);
+  z-index: -1000;
+}
+
+.podcasts {
+  position: relative;
+}
+
+h1.podcastsFonts {
+  color: white;
+}
+
+iframe {
+  height: 235px;
+  border-width: 0;
+  background-color: transparent;
+}
+
+.phone {
+  overflow: hidden;
+}
+
+.fotos {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  margin: auto;
+}
+
+.fotos img {
+  margin: auto;
+}
+
+.temas {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.temas > img {
+  width: initial;
+}
+
+.temas > label {
+  font-size: 24px;
+  font-family: 'IBM Plex Sans', sans-serif;
+  font-weight: 600;
+  text-align: center;
+  letter-spacing: 0;
+  color: #060A24;
+}
+
+.novedades {
+  text-align: center;
+  background: -webkit-gradient(linear, left top, left bottom, from(#0000FF), to(#0000A3));
+  background: linear-gradient(#0000FF, #0000A3);
+  -webkit-clip-path: polygon(100% 0, 100% 0, 100% 100%, 0 100%, 0 30%);
+          clip-path: polygon(100% 0, 100% 0, 100% 100%, 0 100%, 0 30%);
+}
+
+.novedades > h1 {
+  color: white;
+}
+
+footer {
+  background-color: white;
+  width: 100vw;
+  text-align: center;
+}
+
+footer p {
+  display: inline-block;
+  text-align: center;
+}
+
+footer .iconos {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  width: 227px;
+}
+
+footer .iconos a {
+  color: #060A24;
+}
+
+footer .iconos a:link {
+  color: #060A24;
+}
+
+footer .iconos a:active {
+  color: #060A24;
+}
+
+footer .iconos a:visited {
+  color: #060A24;
+}
+
+footer .iconos a:active {
+  color: #060A24;
+}
+
+footer .iconos i {
+  height: 28px;
+}
+
+@media (max-width: 480px) {
+  .logo {
+    width: 24px;
+  }
+  header {
+    padding: 11px 5vw 11px 5vw;
+    width: 90vw;
+    height: 24px;
+  }
+  header > a {
+    height: 24px;
+  }
+  .container {
+    display: inline-block;
+  }
+  .container p {
+    height: 66px;
+  }
+  nav {
+    margin: 44px 0vw;
+    display: none;
+    -webkit-animation: fadeout 1s;
+            animation: fadeout 1s;
+    background-color: #0000EC;
+  }
+  nav ol {
+    padding: 1rem 0 1rem 1rem;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
+  }
+  nav a {
+    color: white;
+    line-height: 40px;
+  }
+  #menuHamburger {
+    display: none;
+  }
+  #menuHamburger:checked + nav {
+    display: block;
+    -webkit-animation: fadein 2s;
+            animation: fadein 2s;
+  }
+  #menuHamburger:checked + nav + label > span:first-child {
+    -webkit-transform: rotate(45deg) translate(15%);
+            transform: rotate(45deg) translate(15%);
+    top: 50%;
+  }
+  #menuHamburger:checked + nav + label > span.centro {
+    background-color: transparent;
+  }
+  #menuHamburger:checked + nav + label > span:last-child {
+    -webkit-transform: rotate(-45deg) translate(15%);
+            transform: rotate(-45deg) translate(15%);
+    top: 50%;
+  }
+  @-webkit-keyframes fadein {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+  @keyframes fadein {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+  @-webkit-keyframes fadeout {
+    from {
+      opacity: 1;
+    }
+    to {
+      opacity: 0;
+    }
+  }
+  @keyframes fadeout {
+    from {
+      opacity: 1;
+    }
+    to {
+      opacity: 0;
+    }
+  }
+  nav + label {
+    height: 12px;
+  }
+  span.burger {
+    position: relative;
+    width: 18px;
+    height: 2px;
+    top: 30%;
+    margin-top: auto;
+    margin-bottom: auto;
+    left: 0;
+    display: block;
+    background: #020304;
+    -webkit-transition: 0.5s;
+    transition: 0.5s;
+  }
+  span.burger:first-child {
+    top: -10%;
+  }
+  span.burger:last-child {
+    top: 70%;
+  }
+  h1 {
+    font-size: 36px;
+    line-height: 42px;
+  }
+  p {
+    margin-top: 1rem;
+    font-size: 14px;
+    line-height: 22px;
+  }
+  .boton {
+    height: 3rem;
+    width: 90vw;
+    font-size: 16px;
+    line-height: 22px;
+  }
+  .uno {
+    margin: 12.5vw 0;
+  }
+  .dos {
+    height: 160px;
+    margin: 0;
+  }
+  .podcasts {
+    width: 95vw;
+  }
+  h1.podcastsFonts {
+    margin-left: 2.5vw;
+    margin-bottom: 21px;
+  }
+  .deDondeVenimos p {
+    margin-top: 6px;
+    margin-bottom: 20px;
+  }
+  .invitados h1 {
+    margin: 3.37rem 0 1rem 5vw;
+  }
+  .nuestrosTemas > h1 {
+    margin: 50px 0 2.45rem 5vw;
+    width: 95vw;
+  }
+  .temas > img {
+    width: initial;
+  }
+  .novedades {
+    -webkit-clip-path: polygon(100% 0, 100% 0, 100% 100%, 0 100%, 0 10%);
+            clip-path: polygon(100% 0, 100% 0, 100% 100%, 0 100%, 0 10%);
+    margin-top: 0;
+    padding-top: 50px;
+    padding-bottom: 35px;
+    height: 300px;
+  }
+  .novedades > h1 {
+    margin-top: 50px;
+  }
+  footer p {
+    margin-top: 22px;
+  }
+  footer .iconos {
+    margin: 1rem auto 2rem auto;
+  }
+  .container {
+    margin: 22.5vw 5vw 0 5vw;
+  }
+  .separador {
+    display: block;
+  }
+  .boton {
+    margin-top: 12vw;
+  }
+  .uno {
+    height: 1190px;
+  }
+  .podcasts {
+    margin: 27.5vw 2.5vw 0 2.5vw;
+  }
+  iframe {
+    width: 95vw;
+  }
+  .phone {
+    margin-top: 3rem;
+  }
+  .phone > img {
+    margin-left: -6.25vw;
+    width: 112.5vw;
+  }
+  .deDondeVenimos {
+    margin: 27.5px 5vw 0 5vw;
+  }
+  .fotos {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+  }
+  .temas > label {
+    margin: .7rem 5vw 50px 5vw;
+  }
+  .novedades {
+    margin-top: 50px;
+  }
+  .novedades > h1 {
+    margin-left: 5%;
+    margin-right: 5%;
+  }
+  .novedades > .boton {
+    margin: 40px 5vw 0 5vw;
+  }
+  footer {
+    height: 6rem;
+  }
+}
+
+@media (min-width: 481px) and (max-width: 1024px) {
+  .logo {
+    width: 24px;
+  }
+  header {
+    padding: 11px 5vw 11px 5vw;
+    width: 90vw;
+    height: 24px;
+  }
+  header > a {
+    height: 24px;
+  }
+  .container {
+    display: inline-block;
+  }
+  .container p {
+    height: 66px;
+  }
+  nav {
+    margin: 44px 0vw;
+    display: none;
+    -webkit-animation: fadeout 1s;
+            animation: fadeout 1s;
+    background-color: #0000EC;
+  }
+  nav ol {
+    padding: 1rem 0 1rem 1rem;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
+  }
+  nav a {
+    color: white;
+    line-height: 40px;
+  }
+  #menuHamburger {
+    display: none;
+  }
+  #menuHamburger:checked + nav {
+    display: block;
+    -webkit-animation: fadein 2s;
+            animation: fadein 2s;
+  }
+  #menuHamburger:checked + nav + label > span:first-child {
+    -webkit-transform: rotate(45deg) translate(15%);
+            transform: rotate(45deg) translate(15%);
+    top: 50%;
+  }
+  #menuHamburger:checked + nav + label > span.centro {
+    background-color: transparent;
+  }
+  #menuHamburger:checked + nav + label > span:last-child {
+    -webkit-transform: rotate(-45deg) translate(15%);
+            transform: rotate(-45deg) translate(15%);
+    top: 50%;
+  }
+  @-webkit-keyframes fadein {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+  @keyframes fadein {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+  @-webkit-keyframes fadeout {
+    from {
+      opacity: 1;
+    }
+    to {
+      opacity: 0;
+    }
+  }
+  @keyframes fadeout {
+    from {
+      opacity: 1;
+    }
+    to {
+      opacity: 0;
+    }
+  }
+  nav + label {
+    height: 12px;
+  }
+  span.burger {
+    position: relative;
+    width: 18px;
+    height: 2px;
+    top: 30%;
+    margin-top: auto;
+    margin-bottom: auto;
+    left: 0;
+    display: block;
+    background: #020304;
+    -webkit-transition: 0.5s;
+    transition: 0.5s;
+  }
+  span.burger:first-child {
+    top: -10%;
+  }
+  span.burger:last-child {
+    top: 70%;
+  }
+  h1 {
+    font-size: 36px;
+    line-height: 42px;
+  }
+  p {
+    margin-top: 1rem;
+    font-size: 14px;
+    line-height: 22px;
+  }
+  .boton {
+    height: 3rem;
+    width: 90vw;
+    font-size: 16px;
+    line-height: 22px;
+  }
+  .uno {
+    margin: 12.5vw 0;
+  }
+  .dos {
+    height: 160px;
+    margin: 0;
+  }
+  .podcasts {
+    width: 95vw;
+  }
+  h1.podcastsFonts {
+    margin-left: 2.5vw;
+    margin-bottom: 21px;
+  }
+  .deDondeVenimos p {
+    margin-top: 6px;
+    margin-bottom: 20px;
+  }
+  .invitados h1 {
+    margin: 3.37rem 0 1rem 5vw;
+  }
+  .nuestrosTemas > h1 {
+    margin: 50px 0 2.45rem 5vw;
+    width: 95vw;
+  }
+  .temas > img {
+    width: initial;
+  }
+  .novedades {
+    -webkit-clip-path: polygon(100% 0, 100% 0, 100% 100%, 0 100%, 0 10%);
+            clip-path: polygon(100% 0, 100% 0, 100% 100%, 0 100%, 0 10%);
+    margin-top: 0;
+    padding-top: 50px;
+    padding-bottom: 35px;
+    height: 300px;
+  }
+  .novedades > h1 {
+    margin-top: 50px;
+  }
+  footer p {
+    margin-top: 22px;
+  }
+  footer .iconos {
+    margin: 1rem auto 2rem auto;
+  }
+  .container {
+    margin: 6rem 5vw 0 5vw;
+    max-width: 440px;
+  }
+  .azul {
+    color: #0000EC;
+  }
+  .boton {
+    margin-top: 3rem;
+    max-width: 400px;
+  }
+  .uno {
+    height: 690px;
+  }
+  .podcasts {
+    margin: 22vw 2.5vw 0 2.5vw;
+  }
+  .spoti {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: row;
+            flex-direction: row;
+    -ms-flex-wrap: wrap;
+        flex-wrap: wrap;
+    -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
+  }
+  iframe {
+    width: 46.5vw;
+  }
+  .agrupador {
+    margin-top: 5rem;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: row;
+            flex-direction: row;
+    -webkit-box-pack: space-evenly;
+        -ms-flex-pack: space-evenly;
+            justify-content: space-evenly;
+  }
+  .phone {
+    overflow: auto;
+  }
+  .phone > img {
+    margin-left: 0;
+    width: 40vw;
+  }
+  .deDondeVenimos {
+    margin: 35px 0 0 0;
+  }
+  .deDondeVenimos h1 {
+    width: 50vw;
+    font-size: 4vw;
+    line-height: 4.5vw;
+  }
+  .deDondeVenimos p {
+    font-size: 2.7vw;
+    line-height: 2.9vw;
+    width: 45vw;
+  }
+  .fotos {
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: row;
+            flex-direction: row;
+    -ms-flex-wrap: wrap;
+        flex-wrap: wrap;
+  }
+  .fotos img {
+    width: 50%;
+  }
+  .nuestrosTemas {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: row;
+            flex-direction: row;
+    -ms-flex-wrap: wrap;
+        flex-wrap: wrap;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+  }
+  .temas {
+    width: 45vw;
+  }
+  .temas > label {
+    margin-top: .7rem;
+    margin-bottom: 50px;
+  }
+  .novedades > .boton {
+    margin: 40px auto 0 auto;
+  }
+  footer {
+    height: 6rem;
+  }
+}
+
+@media (min-width: 1025px) {
+  .logo {
+    width: 36px;
+  }
+  header {
+    padding: 0 0 0 100px;
+    width: calc(100% - 100px);
+    height: 80px;
+  }
+  #menuHamburger {
+    display: none;
+  }
+  nav {
+    position: relative;
+    display: block;
+    margin: 0 7vw 0 50vw;
+  }
+  nav ol {
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: row;
+            flex-direction: row;
+    -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
+  }
+  nav a {
+    color: #060A24;
+    line-height: 28px;
+    letter-spacing: 0;
+  }
+  .container {
+    display: inline-block;
+    margin: 200px auto 0.3vw 200px;
+  }
+  .container p {
+    height: 48px;
+    width: 628px;
+  }
+  h1 {
+    font-size: 64px;
+    line-height: 84px;
+  }
+  p {
+    font-size: 16px;
+    line-height: 24px;
+  }
+  .azul {
+    color: #0000EC;
+  }
+  .boton {
+    margin-top: 3rem;
+    height: 3.5rem;
+    width: 226px;
+    font-size: 18px;
+    line-height: 24px;
+  }
+  .uno {
+    margin-top: 5.5vw;
+    height: 900px;
+  }
+  .podcasts {
+    margin: 12.85vw 0 0 0;
+    width: 100%;
+  }
+  .spoti {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: row;
+            flex-direction: row;
+    -ms-flex-wrap: wrap;
+        flex-wrap: wrap;
+    -webkit-box-pack: space-evenly;
+        -ms-flex-pack: space-evenly;
+            justify-content: space-evenly;
+    padding: 0 3% 0 3%;
+  }
+  h1.podcastsFonts {
+    font-size: 48px;
+    line-height: 62px;
+    margin-left: 200px;
+    margin-bottom: 26px;
+  }
+  iframe {
+    width: 40.56vw;
+    margin-bottom: 4.5rem;
+  }
+  .agrupador {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: row;
+            flex-direction: row;
+    -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
+  }
+  .phone {
+    overflow: auto;
+  }
+  .phone > img {
+    margin-left: 14vw;
+    width: auto;
+    height: 660px;
+  }
+  .deDondeVenimos {
+    margin: 190px 0 0 0;
+  }
+  .deDondeVenimos h1 {
+    width: 50vw;
+    font-size: 48px;
+    line-height: 62px;
+  }
+  .deDondeVenimos p {
+    font-size: 16px;
+    line-height: 24px;
+    width: 32vw;
+    margin-top: 1rem;
+    margin-bottom: 20px;
+  }
+  .deDondeVenimos p br {
+    margin-top: 0.2rem;
+  }
+  .invitados h1 {
+    margin: 1em 0 1rem 200px;
+    font-size: 48px;
+    line-height: 62px;
+  }
+  .fotos {
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: row;
+            flex-direction: row;
+    -ms-flex-wrap: wrap;
+        flex-wrap: wrap;
+  }
+  .fotos img {
+    width: 33.33vw;
+  }
+  .nuestrosTemas {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: row;
+            flex-direction: row;
+    -ms-flex-wrap: wrap;
+        flex-wrap: wrap;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+  }
+  .nuestrosTemas > h1 {
+    margin: 50px 0 3.5rem 200px;
+    font-size: 48px;
+    line-height: 62px;
+    width: 90vw;
+  }
+  .temas {
+    width: 18vw;
+  }
+  .temas > label {
+    margin: 0 1.25rem auto 1.25rem;
+  }
+  .temas > img {
+    width: initial;
+    margin-top: 0;
+    margin-bottom: 1rem;
+  }
+  .novedades {
+    height: auto;
+    margin-top: 50px;
+    padding: 100px 0 1px 0;
+  }
+  .novedades > .boton {
+    margin: 50px auto 150px auto;
+    width: 345px;
+  }
+  .novedades > h1 {
+    margin-top: 100px;
+    font-size: 48px;
+    line-height: 62px;
+  }
+  footer {
+    padding: 0 5vw 0 5vw;
+    width: 90vw;
+    height: 6rem;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: row;
+            flex-direction: row;
+  }
+  footer p {
+    margin: 2rem;
+  }
+  footer .iconos {
+    -webkit-box-align: initial;
+        -ms-flex-align: initial;
+            align-items: initial;
+    margin: 2rem;
+    font-size: 18px;
+  }
+}
+/*# sourceMappingURL=styles.css.map */
