@@ -3,12 +3,13 @@ let botonBuscar = document.getElementById("botonBuscar");
 let tagRelated = document.querySelectorAll(".tagSugerido");
 let divBusquedas = document.querySelector(".busquedas");
 let root = document.documentElement;
-
 let botonCrearGif = document.getElementById("crearGif");
 let botonCancelar = document.getElementById("cancelar");
 let botonComenzar = document.getElementById("comenzar");
 let botonTheme = document.getElementById("theme");
 let botonMisGifos = document.getElementById("misGifos");
+let logo = document.querySelector(".logo")
+
 let rosa = "#F7C9F3";
 let lupa = "img/lupa.svg";
 let busquedas = [];
@@ -68,6 +69,7 @@ botonCrearGif.onclick = () => {
     document.querySelector("#crearGif").style.display = "none";
     document.querySelector("#theme").style.display = "none";
     document.querySelector(".theme").style.display = "none";
+    divBusquedas.style.display = "none";
     document.querySelector("#misGifos").style.display = "none";
 
     document.querySelector("section.crearGifos").style.display = "block";
@@ -87,6 +89,17 @@ botonCancelar.onclick = () => {
 
 botonComenzar.onclick = () => {
     window.location.href = "record.html";
+}
+
+logo.onclick = () => {
+    document.querySelector("section.buscar").style.display = "inline-block";
+    document.querySelector("section.sugeridos").style.display = "inline-block";
+    document.querySelector("#crearGif").style.display = "inline-block";
+    document.querySelector("#theme").style.display = "inline-block";
+    document.querySelector(".theme").style.display = "inline-block";
+    document.querySelector("#misGifos").style.display = "inline-block";
+    getTrendingSearch();
+    document.querySelector("section.crearGifos").style.display = "none";
 }
 
 botonTheme.onclick = () => {
@@ -126,6 +139,7 @@ botonTheme.onclick = () => {
 botonMisGifos.onclick = () => {
     document.querySelector("section.buscar").style.display = "none";
     document.querySelector("section.sugeridos").style.display = "none";
+    divBusquedas.style.display = "none";
     document.querySelector("section.resultados .hoy").style.marginTop = "35px";
     getGifsLocales(localStorage.getItem("misGifs"));
 }

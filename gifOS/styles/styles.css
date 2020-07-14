@@ -50,7 +50,7 @@ header nav {
 }
 
 header nav .logo {
-  margin-right: 689px;
+  margin-right: 47.32vw;
 }
 
 header nav button {
@@ -114,7 +114,7 @@ header nav button:nth-of-type(4) {
 section.buscar {
   margin-left: 99px;
   padding: 2px;
-  width: 1194px;
+  width: 82.01vw;
   -webkit-box-shadow: inset -2px -2px 0 0 var(--gris-shadow), inset 2px 2px 0 0 #FFFFFF;
           box-shadow: inset -2px -2px 0 0 var(--gris-shadow), inset 2px 2px 0 0 #FFFFFF;
 }
@@ -142,7 +142,7 @@ section.buscar div:nth-child(2) input {
   -webkit-box-shadow: inset -2px -2px 0 0 var(--gris), inset 2px 2px 0 0 #000000;
           box-shadow: inset -2px -2px 0 0 var(--gris), inset 2px 2px 0 0 #000000;
   height: 31px;
-  width: 1025px;
+  width: 70.4vw;
   padding: 8px 16px;
   font-size: 16px;
   font-family: 'Chakra Petch', sans-serif;
@@ -186,13 +186,13 @@ section.buscar div:nth-child(2) button:hover {
           box-shadow: inset -2px -2px 0 0 #707070, inset 2px 2px 0 0 #FFFFFF;
   display: none;
   padding: 13px 10px 2px 10px;
-  width: 1180px;
+  width: 81.04vw;
   z-index: 1;
   left: 99px;
 }
 
 .buscarSugeridos .tagSugerido {
-  width: 1057px;
+  width: 72.60vw;
   height: 38px;
   padding: 2px 14px;
   margin-bottom: 10px;
@@ -240,7 +240,7 @@ section.buscar div:nth-child(2) button:hover {
 }
 
 section.sugeridos {
-  width: 1200px;
+  width: 82.42vw;
   margin-top: 63px;
   margin-left: 99px;
 }
@@ -249,9 +249,9 @@ section.sugeridos .figSugeridos {
   display: -ms-grid;
   display: grid;
   grid-auto-flow: row dense;
-  -ms-grid-columns: 1fr 1fr 1fr 1fr;
-      grid-template-columns: 1fr 1fr 1fr 1fr;
-  grid-gap: 16px;
+  -ms-grid-columns: (minmax(288px, 1fr))[auto-fill];
+      grid-template-columns: repeat(auto-fill, minmax(288px, 1fr));
+  grid-gap: 1.1vw;
   overflow: hidden;
   height: 313px;
 }
@@ -353,13 +353,13 @@ section.sugeridos .figSugeridos figure img {
   display: none;
   margin-left: 99px;
   padding: 12px 2px 2px 2px;
-  width: 1194px;
+  width: 82.01vw;
 }
 
 .crearGifos {
   display: none;
   margin-top: 80px;
-  margin-left: 378px;
+  margin-left: 25.96vw;
   margin-bottom: 150px;
   width: 680px;
   height: 386px;
@@ -453,7 +453,7 @@ section.sugeridos .figSugeridos figure img {
 }
 
 .resultados {
-  width: 1200px;
+  width: 82.42vw;
   margin-left: 99px;
 }
 
@@ -465,8 +465,8 @@ section.sugeridos .figSugeridos figure img {
   display: -ms-grid;
   display: grid;
   grid-auto-flow: row dense;
-  -ms-grid-columns: 1fr 1fr 1fr 1fr;
-      grid-template-columns: 1fr 1fr 1fr 1fr;
+  -ms-grid-columns: (minmax(288px, 1fr))[auto-fill];
+      grid-template-columns: repeat(auto-fill, minmax(288px, 1fr));
   grid-gap: 16px;
 }
 
