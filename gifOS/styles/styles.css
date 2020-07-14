@@ -1,5 +1,5 @@
 @import url("https://fonts.googleapis.com/css?family=IBM+Plex+Mono|IBM+Plex+Sans&display=swap");
-@import url("https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@400;600&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@400;600;700&display=swap");
 :root {
   --rosa: #F7C9F3;
   --rosa-focus: #E6BBE2;
@@ -358,22 +358,98 @@ section.sugeridos .figSugeridos figure img {
 
 .crearGifos {
   display: none;
+  margin-top: 80px;
   margin-left: 378px;
-  width: 684px;
+  margin-bottom: 150px;
+  width: 680px;
+  height: 386px;
   background: #E6E6E6;
   -webkit-box-shadow: inset -2px -2px 0 0 var(--gris-shadow), inset 2px 2px 0 0 #FFFFFF;
           box-shadow: inset -2px -2px 0 0 var(--gris-shadow), inset 2px 2px 0 0 #FFFFFF;
+  padding: 2px;
+  font-family: 'Chakra Petch', sans-serif;
+  font-weight: 400;
+  font-size: 14px;
+  color: #110038;
+  letter-spacing: 0;
+  line-height: 22px;
 }
 
 .crearGifos div:nth-child(1) {
   background-image: -webkit-gradient(linear, right top, left top, from(var(--rosa)), to(var(--azul)));
   background-image: linear-gradient(270deg, var(--rosa) 0%, var(--azul) 100%);
-  font-family: 'Chakra Petch', sans-serif;
   font-weight: 600;
-  font-size: 14px;
   color: #FFFFFF;
-  letter-spacing: 0;
   height: 21px;
+  padding-top: 4px;
+  padding-left: 4px;
+}
+
+.crearGifos div:nth-child(3) {
+  margin-left: 70px;
+  margin-top: 5px;
+  line-height: 20px;
+}
+
+.crearGifos div:nth-child(3) li {
+  list-style-type: none;
+  margin-top: 10px;
+  margin-left: 2px;
+}
+
+.crearGifos div:nth-child(4) button {
+  background: var(--rosa);
+  border: 1px solid #110038;
+  -webkit-box-shadow: inset -1px -1px 0 0 #997D97, inset 1px 1px 0 0 #FFFFFF;
+          box-shadow: inset -1px -1px 0 0 #997D97, inset 1px 1px 0 0 #FFFFFF;
+  font-family: 'Chakra Petch', sans-serif;
+  font-size: 16px;
+  color: #110038;
+  letter-spacing: 0;
+  text-align: center;
+  line-height: 18px;
+  height: 38px;
+  width: 146px;
+  margin-left: 341px;
+  margin-top: 29px;
+  display: inline-block;
+}
+
+.crearGifos div:nth-child(4) button:focus {
+  outline: 1px dotted #110038;
+  outline-offset: -2px;
+  background-color: var(--rosa-focus);
+}
+
+.crearGifos div:nth-child(4) button:hover {
+  outline: 1px dotted #110038;
+  outline-offset: -2px;
+  background-color: var(--rosa-focus);
+}
+
+.crearGifos div:nth-child(4) button:nth-child(1) {
+  background: var(--fondo);
+}
+
+.crearGifos div:nth-child(4) button:nth-child(2) {
+  margin-left: 14px;
+}
+
+.crearGifos img {
+  margin-top: 35px;
+  margin-left: 23px;
+  margin-right: 12px;
+  vertical-align: top;
+}
+
+.crearGifos span {
+  margin-top: 32px;
+  display: inline-block;
+  font-size: 16px;
+}
+
+.crearGifos strong {
+  font-weight: 700;
 }
 
 .resultados {

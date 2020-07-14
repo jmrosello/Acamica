@@ -5,6 +5,8 @@ let divBusquedas = document.querySelector(".busquedas");
 let root = document.documentElement;
 
 let botonCrearGif = document.getElementById("crearGif");
+let botonCancelar = document.getElementById("cancelar");
+let botonComenzar = document.getElementById("comenzar");
 let botonTheme = document.getElementById("theme");
 let botonMisGifos = document.getElementById("misGifos");
 let rosa = "#F7C9F3";
@@ -61,8 +63,30 @@ botonBuscar.onclick = () => {
 }
 
 botonCrearGif.onclick = () => {
-    //TODO: tengo que crear un DIV con la leyenda y botones de Mi captura 1 y que repita lo mismo que hace con Mis Guifos
-    window.location.href = "/record.html";
+    document.querySelector("section.buscar").style.display = "none";
+    document.querySelector("section.sugeridos").style.display = "none";
+    document.querySelector("#crearGif").style.display = "none";
+    document.querySelector("#theme").style.display = "none";
+    document.querySelector(".theme").style.display = "none";
+    document.querySelector("#misGifos").style.display = "none";
+
+    document.querySelector("section.crearGifos").style.display = "block";
+    getGifsLocales(localStorage.getItem("misGifs"));
+}
+
+botonCancelar.onclick = () => {
+    document.querySelector("section.buscar").style.display = "inline-block";
+    document.querySelector("section.sugeridos").style.display = "inline-block";
+    document.querySelector("#crearGif").style.display = "inline-block";
+    document.querySelector("#theme").style.display = "inline-block";
+    document.querySelector(".theme").style.display = "inline-block";
+    document.querySelector("#misGifos").style.display = "inline-block";
+
+    document.querySelector("section.crearGifos").style.display = "none";
+}
+
+botonComenzar.onclick = () => {
+    window.location.href = "record.html";
 }
 
 botonTheme.onclick = () => {

@@ -8,15 +8,13 @@ let recording = false;
 
 const botonRecord = document.querySelector("#record");
 const botonGuardar = document.querySelector("#guardarGiphy");
-const botonGifByID = document.querySelector("#gifByID");
 const video = document.querySelector("video");
-const imagen = document.querySelector("img");
+const video2 = document.querySelector("video.gif");
 const stopButton = document.querySelector("#stop-button");
 const playButton = document.querySelector("#play-button");
 
 botonRecord.addEventListener("click", capturarVideo);
 botonGuardar.addEventListener("click", guardarVideo);
-botonGifByID.addEventListener("click", getGifByID('Woc5WaIi03O2e6wUv3'));
 stopButton.addEventListener("click", detenerGrabacion);
 video.addEventListener("timeupdate", updateProgress, false);
 playButton.addEventListener("click", reproducirVideoGrabado);
@@ -83,7 +81,7 @@ async function capturarVideo() {
   dateStarted = new Date().getTime();
 
   (function looper() {
-      if(!recorder) {
+      if(!recorderVideo) {
           return;
       }
 
@@ -103,11 +101,16 @@ async function detenerGrabacion(){
         await recorder.stopRecording();
         blobVideo = await recorderVideo.getBlob();
         blob = await recorder.getBlob();
-        stopButton.hidden = true;
-        recordButton.hidden = false;
-        liveVideo.classList.remove("video-recording");
 
-        video.src = URL.createObjectURL(blob);
+        recorder.destroy();
+        recorderVideo.destroy();
+        recorder = "";
+        recorderVideo = "";
+        stopButton.hidden = true;
+        botonRecord.hidden = false;
+        video.classList.remove("video-recording");
+
+        video2.src = URL.createObjectURL(blobVideo);
     }
 };
 
@@ -123,14 +126,14 @@ function updateProgress() {
 }
 
 function reproducirVideoGrabado() {
-    video.play();
+    video2.play();
 }
 
 async function guardarVideo() {
     if (blob) {
         let form = new FormData();
         const gifName = prompt("Ingresa nombre para el gif") || "migif";
-        form.append("file", blobGif, gifName + ".gif");
+        form.append("file", blob, gifName + ".gif");
 
         try {
           const respuestaUpload = await fetch("https://upload.giphy.com/v1/gifs?api_key=" + apiKey + "&username=" + username, {
@@ -151,11 +154,4 @@ async function guardarVideo() {
       }
 };
 
-async function getGifByID(id) {
-  respuestaGifID = await fetch('https://api.giphy.com/v1/gifs/' + id + '?api_key=' + apiKey)
-  gifJson = await respuestaGifID.json();
-  imagen.src = await JSON.stringify(gifJson.data.images.fixed_height.url).replace(/['"]+/g, '');
-}; 
-
 mostrarVideo();
-imagen.style.hidden = true;
