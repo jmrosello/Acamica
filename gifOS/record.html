@@ -4,47 +4,39 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
+    <link rel="stylesheet" type="text/css" href="./styles/stylesRecord.css">
     <script src="https://www.WebRTC-Experiment.com/RecordRTC.js"></script>
-    <style>
-      video {
-        width: 400px;
-        height: 400px;
-        border: 5px solid black;
-      }
-      .video-recording {
-        border: 5px solid red;
-      }
-      button {
-        width: 120px;
-      }
-      #progressBar {
-        border: 1px solid #aaa;
-        color: #fff;
-        width: 295px;
-        height: 20px;
-      }
-      #progress {
-        background-color: #ff0000;
-        height: 20px;
-        display: inline-block;
-      }
-      .container > div {
-        display: inline-block;
-        height: 600px;
-      }
-    </style>
   </head>
   <body>
-    <h1>Captura de video a GIF</h1>
-    <h2> </h2>
-    <video width="400px"></video><video class="gif" width="400px"></video>
-    <div id="progressBar"><span id="progress"></span></div>
-    <button id="play-button">Play Gif ▶️</button>
-    <button id="stop-button">Detener ◻️</button>
+    <header>
+      <div>
+          <span>¡Bienvenidos/as a Guifos.com! ——————Donde los gifs están.////// Número de visitas: 12.765.803</span>
+      </div>
+      <nav>
+        <img class="flecha" src="img/arrow.svg" />
+        <img class="logo" src="img/gifOF_logo.png"/>
+      </nav>
+    </header>
+    <section class="crearGifos">
+      <div>Crear Guifos</div>
+      <video class="vivo"></video>
+      <div>
+          <button id="camara"><img src="img/camera.svg" /></button><button id="comenzar">Capturar</button>
+      </div>  
+    </section>
 
-    <button id="record">Record</button>
-    <button id="guardarGiphy" disabled>Subir Gif ⬆️</button>
 
+    <div class="basura">
+      <h1>Captura de video a GIF</h1>
+      <h2> </h2>
+      <video class="gif" width="400px"></video>
+      <div id="progressBar"><span id="progress"></span></div>
+      <button id="play-button">Play Gif ▶️</button>
+      <button id="stop-button">Detener ◻️</button>
+
+      <button id="record">Record</button>
+      <button id="guardarGiphy" disabled>Subir Gif ⬆️</button>
+    </div>
     <script src="js/record.js"></script>
   </body>
 </html>

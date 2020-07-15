@@ -44,6 +44,12 @@ header{
         .logo {
             margin-right: 47.32vw;
         }
+        .flecha {
+            display: none;
+            position: absolute;
+            left: -38px;
+            top: 13px;
+        }
         button {
             position: absolute;
             background: var(--rosa);

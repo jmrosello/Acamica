@@ -72,6 +72,7 @@ botonCrearGif.onclick = () => {
     divBusquedas.style.display = "none";
     document.querySelector("#misGifos").style.display = "none";
 
+    document.querySelector(".flecha").style.display = "block";
     document.querySelector("section.crearGifos").style.display = "block";
     getGifsLocales(localStorage.getItem("misGifs"));
 }
@@ -84,8 +85,11 @@ botonCancelar.onclick = () => {
     document.querySelector(".theme").style.display = "inline-block";
     document.querySelector("#misGifos").style.display = "inline-block";
 
+    document.querySelector(".flecha").style.display = "none";
     document.querySelector("section.crearGifos").style.display = "none";
 }
+
+document.querySelector(".flecha").onclick = botonCancelar.onclick;
 
 botonComenzar.onclick = () => {
     window.location.href = "record.html";

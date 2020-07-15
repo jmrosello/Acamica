@@ -53,6 +53,13 @@ header nav .logo {
   margin-right: 47.32vw;
 }
 
+header nav .flecha {
+  display: none;
+  position: absolute;
+  left: -38px;
+  top: 13px;
+}
+
 header nav button {
   position: absolute;
   background: var(--rosa);

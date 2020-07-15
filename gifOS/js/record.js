@@ -6,14 +6,16 @@ let recorderVideo, recorder;
 let blob, blobVideo;
 let recording = false;
 
-const botonRecord = document.querySelector("#record");
+const botonRecord = document.querySelector("#comenzar");
+const botonRecord2 = document.querySelector("#camara");
 const botonGuardar = document.querySelector("#guardarGiphy");
-const video = document.querySelector("video");
+const video = document.querySelector("video.vivo");
 const video2 = document.querySelector("video.gif");
 const stopButton = document.querySelector("#stop-button");
 const playButton = document.querySelector("#play-button");
 
 botonRecord.addEventListener("click", capturarVideo);
+botonRecord2.addEventListener("click", capturarVideo);
 botonGuardar.addEventListener("click", guardarVideo);
 stopButton.addEventListener("click", detenerGrabacion);
 video.addEventListener("timeupdate", updateProgress, false);

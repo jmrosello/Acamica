@@ -1,0 +1,171 @@
+@import url("https://fonts.googleapis.com/css?family=IBM+Plex+Mono|IBM+Plex+Sans&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@400;600;700&display=swap");
+:root {
+  --rosa: #F7C9F3;
+  --rosa-focus: #E6BBE2;
+  --azul: #4180F6;
+  --azul-focus: #3A72DB;
+  --fondo: #FFF4FD;
+  --gris: #E6E6E6;
+  --gris-shadow: #B4B4B4;
+  --gris-tag: #F0F0F0;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  border: none;
+}
+
+body {
+  background-color: var(--fondo);
+}
+
+header div {
+  width: 100%;
+  background-image: -webkit-gradient(linear, right top, left top, from(var(--rosa)), to(var(--azul)));
+  background-image: linear-gradient(270deg, var(--rosa) 0%, var(--azul) 100%);
+  -webkit-box-shadow: 0 1px 0 0 #110038;
+          box-shadow: 0 1px 0 0 #110038;
+  display: -webkit-inline-box;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  height: 23px;
+}
+
+header div span {
+  margin-left: 7px;
+  color: white;
+  font-size: 12px;
+  letter-spacing: 0;
+  font-family: 'Chakra Petch', sans-serif;
+}
+
+header nav {
+  margin: 40px auto 23px 98px;
+  position: relative;
+}
+
+header nav .logo {
+  margin-right: 47.32vw;
+}
+
+header nav .flecha {
+  position: absolute;
+  left: -38px;
+  top: 13px;
+}
+
+.crearGifos {
+  margin-top: 92px;
+  margin-left: 18.21vw;
+  margin-bottom: 150px;
+  width: 856px;
+  height: 548px;
+  background: #E6E6E6;
+  -webkit-box-shadow: inset -2px -2px 0 0 var(--gris-shadow), inset 2px 2px 0 0 #FFFFFF;
+          box-shadow: inset -2px -2px 0 0 var(--gris-shadow), inset 2px 2px 0 0 #FFFFFF;
+  padding: 2px;
+  font-family: 'Chakra Petch', sans-serif;
+  font-weight: 400;
+  font-size: 14px;
+  color: #110038;
+  letter-spacing: 0;
+  line-height: 22px;
+}
+
+.crearGifos div:nth-child(1) {
+  background-image: -webkit-gradient(linear, right top, left top, from(var(--rosa)), to(var(--azul)));
+  background-image: linear-gradient(270deg, var(--rosa) 0%, var(--azul) 100%);
+  font-weight: 600;
+  color: #FFFFFF;
+  height: 21px;
+  padding-top: 4px;
+  padding-left: 4px;
+}
+
+.crearGifos video {
+  margin-left: 5px;
+  margin-top: 5px;
+  width: 836px;
+  height: 434px;
+  -o-object-fit: cover;
+     object-fit: cover;
+  border: 2px solid #979797;
+  -webkit-box-shadow: inset -2px -2px 0 0 #E6E6E6, inset 2px 2px 0 0 #000000;
+          box-shadow: inset -2px -2px 0 0 #E6E6E6, inset 2px 2px 0 0 #000000;
+}
+
+.crearGifos .video-recording {
+  border: 5px solid red;
+}
+
+.crearGifos button {
+  background: var(--rosa);
+  border: 1px solid #110038;
+  -webkit-box-shadow: inset -1px -1px 0 0 #997D97, inset 1px 1px 0 0 #FFFFFF;
+          box-shadow: inset -1px -1px 0 0 #997D97, inset 1px 1px 0 0 #FFFFFF;
+  font-family: 'Chakra Petch', sans-serif;
+  font-size: 16px;
+  color: #110038;
+  letter-spacing: 0;
+  text-align: center;
+  line-height: 18px;
+  height: 38px;
+  margin-top: 18px;
+  display: inline-block;
+  vertical-align: top;
+}
+
+.crearGifos button:focus {
+  outline: 1px dotted #110038;
+  outline-offset: -2px;
+  background-color: var(--rosa-focus);
+}
+
+.crearGifos button:hover {
+  outline: 1px dotted #110038;
+  outline-offset: -2px;
+  background-color: var(--rosa-focus);
+}
+
+.crearGifos button:nth-child(1) {
+  width: 38px;
+  margin-left: 660px;
+}
+
+.crearGifos button:nth-child(2) {
+  border-left: none;
+  width: 146px;
+  margin-left: 0px;
+}
+
+.basura {
+  display: none;
+}
+
+.basura button {
+  width: 120px;
+}
+
+.basura #progressBar {
+  border: 1px solid #aaa;
+  color: #fff;
+  width: 295px;
+  height: 20px;
+}
+
+.basura #progress {
+  background-color: #ff0000;
+  height: 20px;
+  display: inline-block;
+}
+
+.basura .container > div {
+  display: inline-block;
+  height: 600px;
+}
+/*# sourceMappingURL=stylesRecord.css.map */
