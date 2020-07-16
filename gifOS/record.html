@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
+    <title>gifOS</title>
     <link rel="stylesheet" type="text/css" href="./styles/stylesRecord.css">
     <script src="https://www.WebRTC-Experiment.com/RecordRTC.js"></script>
   </head>
@@ -19,23 +19,26 @@
     </header>
     <section class="crearGifos">
       <div>Crear Guifos</div>
-      <video class="vivo"></video>
-      <div>
-          <button id="camara"><img src="img/camera.svg" /></button><button id="comenzar">Capturar</button>
+      <video class="vivo"></video><video class="gif"></video>
+      <div class="flexy">
+          <h2></h2>
+          <button id="play-button"><img src="img/forward.svg"/></button>
+          <div id="progressBar"><span id="progress"></span></div>
+          <button id="camara"><img src="img/camera.svg" /></button>
+          <button id="comenzar">Capturar</button>
+          <button id="camara-stop"><img src="img/recording.svg" /></button>
+          <button id="stop-button">Listo</button>
+          <button id="guardarGiphy">Subir Guifo</button>
       </div>  
     </section>
 
 
     <div class="basura">
       <h1>Captura de video a GIF</h1>
-      <h2> </h2>
-      <video class="gif" width="400px"></video>
-      <div id="progressBar"><span id="progress"></span></div>
-      <button id="play-button">Play Gif ▶️</button>
-      <button id="stop-button">Detener ◻️</button>
+      
+      
 
       <button id="record">Record</button>
-      <button id="guardarGiphy" disabled>Subir Gif ⬆️</button>
     </div>
     <script src="js/record.js"></script>
   </body>

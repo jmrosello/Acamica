@@ -59,6 +59,12 @@ header nav .flecha {
   top: 13px;
 }
 
+.flexy {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
 .crearGifos {
   margin-top: 92px;
   margin-left: 18.21vw;
@@ -99,8 +105,8 @@ header nav .flecha {
           box-shadow: inset -2px -2px 0 0 #E6E6E6, inset 2px 2px 0 0 #000000;
 }
 
-.crearGifos .video-recording {
-  border: 5px solid red;
+.crearGifos video.gif {
+  display: none;
 }
 
 .crearGifos button {
@@ -117,7 +123,7 @@ header nav .flecha {
   height: 38px;
   margin-top: 18px;
   display: inline-block;
-  vertical-align: top;
+  vertical-align: middle;
 }
 
 .crearGifos button:focus {
@@ -132,40 +138,93 @@ header nav .flecha {
   background-color: var(--rosa-focus);
 }
 
-.crearGifos button:nth-child(1) {
+.crearGifos button#camara {
   width: 38px;
   margin-left: 660px;
+  border-right: none;
 }
 
-.crearGifos button:nth-child(2) {
-  border-left: none;
+.crearGifos button#comenzar {
   width: 146px;
   margin-left: 0px;
+}
+
+.crearGifos button#camara-stop {
+  width: 38px;
+  margin-left: 660px;
+  padding-top: 4px;
+  border-right: none;
+  display: none;
+  background-color: #FF6161;
+  border: 1px solid #110038;
+  -webkit-box-shadow: inset -1px -1px 0 0 #993A3A, inset 1px 1px 0 0 #FFFFFF;
+          box-shadow: inset -1px -1px 0 0 #993A3A, inset 1px 1px 0 0 #FFFFFF;
+}
+
+.crearGifos button#stop-button {
+  width: 146px;
+  margin-left: 0px;
+  display: none;
+  color: white;
+  background-color: #FF6161;
+  border: 1px solid #110038;
+  -webkit-box-shadow: inset -1px -1px 0 0 #993A3A, inset 1px 1px 0 0 #FFFFFF;
+          box-shadow: inset -1px -1px 0 0 #993A3A, inset 1px 1px 0 0 #FFFFFF;
+}
+
+.crearGifos button#play-button {
+  display: none;
+  margin-top: 26px;
+  margin-left: 156px;
+  margin-right: 3px;
+  width: 22px;
+  height: 22px;
+  padding-left: 2px;
+}
+
+.crearGifos button#guardarGiphy {
+  display: none;
+  width: 144px;
+}
+
+.crearGifos h2 {
+  font-family: 'Chakra Petch', sans-serif;
+  font-size: 16px;
+  color: #110038;
+  letter-spacing: 0;
+  line-height: 22px;
+  display: none;
+}
+
+.crearGifos #progressBar {
+  display: none;
+  background: #B4B4B4;
+  -webkit-box-shadow: inset 2px 2px 0 0 #000000, inset -2px -2px 0 0 #FFFCFC;
+          box-shadow: inset 2px 2px 0 0 #000000, inset -2px -2px 0 0 #FFFCFC;
+  color: #FFFFFF;
+  width: 240px;
+  height: 23px;
+  vertical-align: middle;
+  margin-top: 26px;
+}
+
+.crearGifos #progress {
+  background-color: #F7C9F3;
+  height: 20px;
+  display: inline-block;
+}
+
+.crearGifos .progressBar {
+  display: none;
 }
 
 .basura {
   display: none;
 }
 
-.basura button {
-  width: 120px;
-}
-
-.basura #progressBar {
-  border: 1px solid #aaa;
-  color: #fff;
-  width: 295px;
+.boxRosa {
+  background-color: #F7C9F3;
+  width: 12px;
   height: 20px;
-}
-
-.basura #progress {
-  background-color: #ff0000;
-  height: 20px;
-  display: inline-block;
-}
-
-.basura .container > div {
-  display: inline-block;
-  height: 600px;
 }
 /*# sourceMappingURL=stylesRecord.css.map */

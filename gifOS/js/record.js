@@ -12,15 +12,23 @@ const botonGuardar = document.querySelector("#guardarGiphy");
 const video = document.querySelector("video.vivo");
 const video2 = document.querySelector("video.gif");
 const stopButton = document.querySelector("#stop-button");
+const stopButton2 = document.querySelector("#camara-stop");
 const playButton = document.querySelector("#play-button");
+const flechaButton = document.querySelector(".flecha");
+const progressBar = document.querySelector("#progressBar");
+
+flechaButton.onclick = () => {
+    window.location.href = "index.html";
+}
+
 
 botonRecord.addEventListener("click", capturarVideo);
 botonRecord2.addEventListener("click", capturarVideo);
 botonGuardar.addEventListener("click", guardarVideo);
 stopButton.addEventListener("click", detenerGrabacion);
+stopButton2.addEventListener("click", detenerGrabacion);
 video.addEventListener("timeupdate", updateProgress, false);
 playButton.addEventListener("click", reproducirVideoGrabado);
-
 
 function calculateDuration(secs) {
     var hr = Math.floor(secs / 3600);
@@ -52,9 +60,7 @@ async function mostrarVideo() {
   }
 
 async function capturarVideo() {
-  botonRecord.disabled = true;
-  botonGuardar.disabled = false;
-  video.classList.add("video-recording");
+  //TODO: display con tiempo de grabación
 
   recorder = new RecordRTCPromisesHandler(stream, {
     type: "gif",
@@ -65,10 +71,18 @@ async function capturarVideo() {
     timeSlice: 1000, // pass this parameter
     onGifRecordingStarted: function() {
           document.querySelector('h1').innerHTML = 'Captura de video a GIF.<br><strong>Grabación iniciada.</strong>';
-    }/*,
+    },
     onGifPreview: function(gifURL) {
-        imagen.src = gifURL;
-    }*/
+        video.style.display = "inline-block";
+        video2.style.display = "none";
+        botonRecord.style.display = "none";
+        botonRecord2.style.display = "none";
+        stopButton.style.display = "inline-block";
+        stopButton2.style.display = "inline-block";
+        playButton.style.display = "none";
+        progressBar.style.display = "none";
+        botonGuardar.style.display = "none";
+    }
   });
   recorderVideo = new RecordRTCPromisesHandler(stream, {
     type: "video",
@@ -80,21 +94,16 @@ async function capturarVideo() {
   recorderVideo.startRecording();
   recorder.startRecording();
 
-  dateStarted = new Date().getTime();
-
+  dateStarted = new Date().getTime(); 
   (function looper() {
       if(!recorderVideo) {
           return;
       }
 
-      document.querySelector('h2').innerHTML = 'Duracion grabacion: ' + calculateDuration((new Date().getTime() - dateStarted) / 1000);
+      document.querySelector('h2').innerHTML = '00:00:' + calculateDuration((new Date().getTime() - dateStarted) / 1000);
 
       setTimeout(looper, 100);
   })();
-
-  const sleep = (m) => new Promise((r) => setTimeout(r, m));
-  await sleep(4000);
-  detenerGrabacion();
 };
 
 async function detenerGrabacion(){
@@ -108,21 +117,30 @@ async function detenerGrabacion(){
         recorderVideo.destroy();
         recorder = "";
         recorderVideo = "";
-        stopButton.hidden = true;
-        botonRecord.hidden = false;
-        video.classList.remove("video-recording");
 
+        botonRecord.style.display = "inline-block";
+        botonRecord.innerHTML = "Repetir Captura";
+        botonRecord.style.background = "#FFF4FD";
+        botonRecord.style.marginLeft = "120px";
+        playButton.style.display = "inline-block";
+        progressBar.style.display = "inline-block";
+        botonGuardar.style.display = "inline-block";
+        
+        stopButton.style.display = "none";
+        stopButton2.style.display = "none";
+
+        video.style.display = "none";
         video2.src = URL.createObjectURL(blobVideo);
+        video2.style.display = "inline-block";
+        video2.style.opacity = "0.3"
     }
 };
 
 function updateProgress() {
     const progress = document.getElementById("progress");
     let value = 0;
-    if (video.currentTime > 0) {
-        value = Math.floor(
-        (100 / video.duration) * video.currentTime
-        );
+    if (video2.currentTime > 0) {
+        value = Math.floor((video2.currentTime / video2.duration) * 100);
     }
     progress.style.width = value + "%";
 }

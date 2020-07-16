@@ -51,7 +51,9 @@ header{
         }
     }
 }
-
+.flexy {
+    display:flex;
+}
 .crearGifos {
     margin-top: 92px;
     margin-left: 18.21vw;
@@ -85,10 +87,9 @@ header{
         object-fit: cover;
         border: 2px solid #979797;
         box-shadow: inset -2px -2px 0 0 #E6E6E6, inset 2px 2px 0 0 #000000;
-    }
-    
-    .video-recording {
-        border: 5px solid red;
+        &.gif {
+            display: none;
+        }
     }
 
     button {
@@ -104,7 +105,7 @@ header{
         height: 38px;
         margin-top: 18px;
         display: inline-block;
-        vertical-align: top;
+        vertical-align: middle;
         &:focus {
             outline: 1px dotted #110038;
             outline-offset: -2px;
@@ -115,35 +116,83 @@ header{
             outline-offset: -2px;
             background-color: var(--rosa-focus);
         }
-        &:nth-child(1) {
+        &#camara {
             width: 38px;
             margin-left: 660px;
+            border-right: none;
         }
-        &:nth-child(2) {
-            border-left: none;
+        &#comenzar {
             width: 146px;
             margin-left: 0px;
         }
+        &#camara-stop {
+            width: 38px;
+            margin-left: 660px;
+            padding-top: 4px;
+            border-right: none;
+            display: none;
+            background-color: #FF6161;
+            border: 1px solid #110038;
+            box-shadow: inset -1px -1px 0 0 #993A3A, inset 1px 1px 0 0 #FFFFFF;
+        }
+        &#stop-button {
+            width: 146px;
+            margin-left: 0px;
+            display: none;
+            color: white;
+            background-color: #FF6161;
+            border: 1px solid #110038;
+            box-shadow: inset -1px -1px 0 0 #993A3A, inset 1px 1px 0 0 #FFFFFF;
+        }
+        &#play-button {
+            display: none;
+            margin-top: 26px;
+            margin-left: 156px;
+            margin-right: 3px;
+            width: 22px;
+            height: 22px;
+            padding-left: 2px;
+        }
+        &#guardarGiphy {
+            display: none;
+            width: 144px;
+        }
+    }
+
+    h2 {
+        font-family: 'Chakra Petch', sans-serif;
+        font-size: 16px;
+        color: #110038;
+        letter-spacing: 0;
+        line-height: 22px;
+        display: none;
+    }
+    
+    #progressBar {
+        display: none;
+        background: #B4B4B4;
+        box-shadow: inset 2px 2px 0 0 #000000, inset -2px -2px 0 0 #FFFCFC;
+        color: #FFFFFF;
+        width: 240px;
+        height: 23px;
+        vertical-align: middle;
+        margin-top: 26px;
+    }
+    #progress {
+        background-color: #F7C9F3;
+        height: 20px;
+        display: inline-block;
+    }
+    
+    .progressBar {
+        display:none;
     }
 }
 .basura {
     display: none;
-  button {
-    width: 120px;
-  }
-  #progressBar {
-    border: 1px solid #aaa;
-    color: #fff;
-    width: 295px;
+}
+.boxRosa {
+    background-color: #F7C9F3;
+    width: 12px;
     height: 20px;
-  }
-  #progress {
-    background-color: #ff0000;
-    height: 20px;
-    display: inline-block;
-  }
-  .container > div {
-    display: inline-block;
-    height: 600px;
-  }
 }
