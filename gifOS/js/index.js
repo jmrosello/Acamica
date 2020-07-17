@@ -122,6 +122,7 @@ botonTheme.onclick = () => {
         root.style.setProperty('--gris', "#B4B4B4");
         root.style.setProperty('--gris-shadow', "#8F8F8F");
         root.style.setProperty('--gris-tag', "#CCCCCC");
+        botonMisGifos.style.color = "white";
         logo.src ="img/gifOF_logo_dark.png";
         
     } else {
@@ -136,6 +137,7 @@ botonTheme.onclick = () => {
         root.style.setProperty('--gris', "#E6E6E6");
         root.style.setProperty('--gris-shadow', "#B4B4B4");
         root.style.setProperty('--gris-tag', "#F0F0F0");
+        botonMisGifos.style.color = "#110038";
         logo.src ="img/gifOF_logo.png";
     }
 }

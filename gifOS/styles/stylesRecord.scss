@@ -59,7 +59,7 @@ header{
     margin-left: 18.21vw;
     margin-bottom: 150px;
     width: 856px;
-    height: 548px;
+    height: 545px;
     background: #E6E6E6;
     box-shadow: inset -2px -2px 0 0 var(--gris-shadow), inset 2px 2px 0 0 #FFFFFF;
     padding: 2px;
@@ -75,13 +75,21 @@ header{
         font-weight: 600;
         color: #FFFFFF;
         height: 21px;
-        padding-top: 4px;
-        padding-left: 4px;
+        padding-top: 3px;
+        padding-left: 5px;
+        button {
+            float: right;
+            padding: 0px;
+            border: none;
+            margin: 2px 12px 0px 0px;
+            width: 16px;
+            height: 14px;
+        }
     }
     
     video {
         margin-left: 5px;
-        margin-top: 5px;
+        margin-top: 9px;
         width: 836px;
         height: 434px;
         object-fit: cover;
@@ -103,7 +111,7 @@ header{
         text-align: center;
         line-height: 18px;
         height: 38px;
-        margin-top: 18px;
+        margin-top: 17px;
         display: inline-block;
         vertical-align: middle;
         &:focus {
@@ -127,7 +135,7 @@ header{
         }
         &#camara-stop {
             width: 38px;
-            margin-left: 660px;
+            margin-left: 520px;
             padding-top: 4px;
             border-right: none;
             display: none;
@@ -142,12 +150,13 @@ header{
             color: white;
             background-color: #FF6161;
             border: 1px solid #110038;
+            border-left: none;
             box-shadow: inset -1px -1px 0 0 #993A3A, inset 1px 1px 0 0 #FFFFFF;
         }
         &#play-button {
             display: none;
-            margin-top: 26px;
-            margin-left: 156px;
+            margin-top: 24px;
+            margin-left: 16px;
             margin-right: 3px;
             width: 22px;
             height: 22px;
@@ -156,6 +165,7 @@ header{
         &#guardarGiphy {
             display: none;
             width: 144px;
+            margin-left: 12px;
         }
     }
 
@@ -163,20 +173,28 @@ header{
         font-family: 'Chakra Petch', sans-serif;
         font-size: 16px;
         color: #110038;
+        background: #FFFFFF;
+        border: 1px solid #979797;
+        box-shadow: inset -2px -2px 0 0 #E6E6E6, inset 2px 2px 0 0 #000000;
         letter-spacing: 0;
         line-height: 22px;
         display: none;
+        padding: 8px 5px 12px 20px;
+        min-width: 104px;
+        height: 16px;
+        margin: 15px 0px 0px 8px;
+        font-weight: 400;
     }
     
     #progressBar {
         display: none;
-        background: #B4B4B4;
+        //background: #B4B4B4;
         box-shadow: inset 2px 2px 0 0 #000000, inset -2px -2px 0 0 #FFFCFC;
         color: #FFFFFF;
         width: 240px;
         height: 23px;
         vertical-align: middle;
-        margin-top: 26px;
+        margin-top: 24px;
     }
     #progress {
         background-color: #F7C9F3;

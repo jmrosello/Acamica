@@ -9,6 +9,7 @@ let recording = false;
 const botonRecord = document.querySelector("#comenzar");
 const botonRecord2 = document.querySelector("#camara");
 const botonGuardar = document.querySelector("#guardarGiphy");
+const botonCerrar = document.querySelector("#cerrar");
 const video = document.querySelector("video.vivo");
 const video2 = document.querySelector("video.gif");
 const stopButton = document.querySelector("#stop-button");
@@ -16,6 +17,8 @@ const stopButton2 = document.querySelector("#camara-stop");
 const playButton = document.querySelector("#play-button");
 const flechaButton = document.querySelector(".flecha");
 const progressBar = document.querySelector("#progressBar");
+const titulo = document.querySelector(".crearGifos div:nth-child(1)")
+const tiempo = document.querySelector("h2");
 
 flechaButton.onclick = () => {
     window.location.href = "index.html";
@@ -33,7 +36,12 @@ playButton.addEventListener("click", reproducirVideoGrabado);
 function calculateDuration(secs) {
     var hr = Math.floor(secs / 3600);
     var min = Math.floor((secs - (hr * 3600)) / 60);
-    var sec = Math.floor(secs*10 - (hr * 36000) - (min * 600))/10;
+    var sec = Math.floor(secs - (hr * 3600) - (min * 60));
+    var mili = Math.floor(secs*100 - (hr * 360000) - (min * 6000) - (sec * 100));
+
+    if (hr < 10) {
+      hr = "0" + hr;
+    }
 
     if (min < 10) {
         min = "0" + min;
@@ -42,12 +50,12 @@ function calculateDuration(secs) {
     if (sec < 10) {
         sec = "0" + sec;
     }
-
-    if(hr <= 0) {
-        return min + ':' + sec;
+    
+    if (mili < 10) {
+      mili = "0" + mili;
     }
 
-    return hr + ':' + min + ':' + sec;
+    return hr + ':' + min + ':' + sec + ':' + mili;
 }
 
 async function mostrarVideo() {
@@ -60,8 +68,6 @@ async function mostrarVideo() {
   }
 
 async function capturarVideo() {
-  //TODO: display con tiempo de grabación
-
   recorder = new RecordRTCPromisesHandler(stream, {
     type: "gif",
     frameRate: 2,
@@ -82,6 +88,8 @@ async function capturarVideo() {
         playButton.style.display = "none";
         progressBar.style.display = "none";
         botonGuardar.style.display = "none";
+        titulo.innerHTML = "Capturando Tu Guifo";
+        tiempo.style.display = "inline-block";
     }
   });
   recorderVideo = new RecordRTCPromisesHandler(stream, {
@@ -99,8 +107,8 @@ async function capturarVideo() {
       if(!recorderVideo) {
           return;
       }
-
-      document.querySelector('h2').innerHTML = '00:00:' + calculateDuration((new Date().getTime() - dateStarted) / 1000);
+      
+      tiempo.innerHTML = calculateDuration((new Date().getTime() - dateStarted) / 1000);
 
       setTimeout(looper, 100);
   })();
@@ -121,13 +129,15 @@ async function detenerGrabacion(){
         botonRecord.style.display = "inline-block";
         botonRecord.innerHTML = "Repetir Captura";
         botonRecord.style.background = "#FFF4FD";
-        botonRecord.style.marginLeft = "120px";
+        botonRecord.style.marginLeft = "118px";
         playButton.style.display = "inline-block";
         progressBar.style.display = "inline-block";
         botonGuardar.style.display = "inline-block";
+        titulo.innerHTML = "Vista Previa";
         
         stopButton.style.display = "none";
         stopButton2.style.display = "none";
+        botonCerrar.style.display = "none";
 
         video.style.display = "none";
         video2.src = URL.createObjectURL(blobVideo);
@@ -152,9 +162,9 @@ function reproducirVideoGrabado() {
 async function guardarVideo() {
     if (blob) {
         let form = new FormData();
-        const gifName = prompt("Ingresa nombre para el gif") || "migif";
-        form.append("file", blob, gifName + ".gif");
+        form.append("file", blob, "acamica.gif");
 
+        //TODO: agregar el div con el "Estamos subiendo tu guifo..."
         try {
           const respuestaUpload = await fetch("https://upload.giphy.com/v1/gifs?api_key=" + apiKey + "&username=" + username, {
             mode: "cors",
@@ -163,14 +173,17 @@ async function guardarVideo() {
           });
           const parsedResponse = await respuestaUpload.json();
           
-          localStorage.setItem("myGifs", JSON.stringify(parsedResponse.data.id));
-          console.log("Felicitaciones se subió tu gif 👏 👏");
+          //TODO: agregar el final de exito con boton de copiar enlace y descargar guifo. Con listo volver a index.html
+          misGifs = await JSON.parse(localStorage.getItem("misGifs"));
+          misGifs.push(parsedResponse.data.id);
+          localStorage.setItem("misGifs", await JSON.stringify(misGifs));
+          console.log("Felicitaciones se subió tu gif");
         } catch (e) {
-          console.log(e);
-          alert("Error algo salio mal 😭");
+          console.error(e);
+          console.error("Error algo salio mal");
         }
       } else {
-        alert("👁 no has grabado nada para subir");
+        console.error("No has grabado nada para subir");
       }
 };
 
