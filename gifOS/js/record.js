@@ -20,6 +20,9 @@ const progressBar = document.querySelector("#progressBar");
 const titulo = document.querySelector(".crearGifos div:nth-child(1)")
 const tiempo = document.querySelector("h2");
 
+botonRecord.disabled = true;
+botonRecord2.disabled = true;
+
 flechaButton.onclick = () => {
     window.location.href = "index.html";
 }
@@ -65,6 +68,8 @@ async function mostrarVideo() {
     });
     video.srcObject = stream;
     video.play();
+    botonRecord.disabled = false;
+    botonRecord2.disabled = false;
   }
 
 async function capturarVideo() {
@@ -164,7 +169,62 @@ async function guardarVideo() {
         let form = new FormData();
         form.append("file", blob, "acamica.gif");
 
-        //TODO: agregar el div con el "Estamos subiendo tu guifo..."
+        botonRecord.style.display = "none";
+        playButton.style.display = "none";
+        botonGuardar.style.display = "none";
+        progressBar.style.display = "none";
+        tiempo.style.display = "none";
+        video.style.display = "none";
+        video2.style.display = "none";
+
+        titulo.innerHTML = "Subiendo Guifo";
+        containerDiv = document.createElement("div");
+        containerDiv.style.backgroundColor = "white";
+        containerDiv.style.border = "1px solid #979797";
+        containerDiv.style.boxShadow = "inset -2px -2px 0 0 #E6E6E6, inset 2px 2px 0 0 #000000";
+        containerDiv.style.marginLeft = "5px";
+        containerDiv.style.marginTop = "9px";
+        containerDiv.style.width = "836px";
+        containerDiv.style.height = "434px";
+        
+        imagenPlaneta = document.createElement("img");
+        imagenPlaneta.src = "img/globe_img.png";
+        imagenPlaneta.style.marginTop = "139px";
+        imagenPlaneta.style.marginLeft = "405px";
+        spanSubiendo = document.createElement("span");
+        spanSubiendo.innerHTML = "Estamos subiendo tu guifo..."
+        spanSubiendo.style.marginLeft = "314px";
+        spanSubiendo.style.marginTop = "1px";
+        spanSubiendo.style.fontSize = "16px";
+        spanSubiendo.style.display = "block";
+        spanSubiendo.style.fontWeight = "bold";
+        
+        spanTiempo = document.createElement("span");
+        spanTiempo.innerHTML = "Tiempo restante: <strike>38 años</strike> algunos minutos"
+        spanTiempo.style.marginLeft = "303px";
+        spanTiempo.style.marginTop = "68px";
+        spanTiempo.style.display = "block";
+        spanTiempo.style.fontSize = "12px";
+        spanTiempo.style.color = "rgba(17,0,56,0.64)";
+
+        ventana = document.querySelector(".crearGifos div");
+        ventana.parentNode.insertBefore(containerDiv, ventana.nextSibling);
+        containerDiv.append(imagenPlaneta);
+        containerDiv.append(spanSubiendo);
+        containerDiv.append(spanTiempo);
+
+        botonCancelar = document.createElement("button");
+        botonCancelar.innerHTML = "Cancelar";
+        botonCancelar.style.background = "rgb(255, 244, 253)";
+        botonCancelar.style.marginLeft = "699px";
+        botonCancelar.style.width = "146px";
+        document.querySelector(".flexy").append(botonCancelar);
+
+        botonCancelar.onclick = () => {
+          window.location.href = "index.html";
+        }
+      
+        /*
         try {
           const respuestaUpload = await fetch("https://upload.giphy.com/v1/gifs?api_key=" + apiKey + "&username=" + username, {
             mode: "cors",
@@ -182,7 +242,7 @@ async function guardarVideo() {
           console.error(e);
           console.error("Error algo salio mal");
         }
-      } else {
+      */} else {
         console.error("No has grabado nada para subir");
       }
 };
