@@ -214,3 +214,70 @@ header{
     width: 12px;
     height: 20px;
 }
+
+.resultados {
+    display: none;
+
+    .hoy {
+        margin-top: 64px;
+        height: 24px;
+        background: #FFFAFE;
+        border: 1px solid var(--rosa-focus);
+        box-shadow: inset -2px -2px 0 0 #E6DCE4, inset 2px 2px 0 0 #80687D;
+        font-family: 'Chakra Petch', sans-serif;
+        font-size: 14px;
+        color: #110038;
+        letter-spacing: 0;
+        padding-left: 7px;
+        padding-top: 7px;
+        margin-bottom: 16px;
+    }
+    width: 82.42vw;
+    margin-left: 99px;
+    .imgResultados {
+        display: grid;
+        grid-auto-flow: row dense;
+        grid-template-columns: repeat(auto-fill, minmax(288px, 1fr));
+        grid-gap: 16px;
+        div {
+            height: 298px;
+            width: 288px;
+            overflow: hidden;
+            figure {
+                img {
+                    min-height: 298px;
+                    min-width: 288px;
+                    object-fit: cover;
+                    object-position: 50% 50%;
+                    
+                }
+            }
+        }
+    }
+}
+
+.mouseOver { 
+        border: 2px;
+        box-shadow: inset -2px -2px 0 0 var(--gris-shadow), inset 2px 2px 0 0 #FFFFFF;
+        padding: 3px;
+        figure {
+            figcaption {
+                position: static;
+                background-image: linear-gradient(270deg, var(--rosa) 0%, var(--azul) 100%);
+                font-family: 'Chakra Petch', sans-serif;
+                font-weight: 600;        
+                font-size: 14px;
+                color: #FFFFFF;
+                letter-spacing: 0;
+                width: 100%;
+                height: 21px;
+                overflow: hidden;
+                margin: 0px;
+                padding: 0px;
+            }
+            img {
+                min-width: 270px !important;
+                min-height: 282px !important;
+            }
+        }
+}

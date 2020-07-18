@@ -81,21 +81,21 @@ async function capturarVideo() {
     hidden: 240,
     timeSlice: 1000, // pass this parameter
     onGifRecordingStarted: function() {
-          document.querySelector('h1').innerHTML = 'Captura de video a GIF.<br><strong>Grabación iniciada.</strong>';
+          //document.querySelector('h1').innerHTML = 'Captura de video a GIF.<br><strong>Grabación iniciada.</strong>';
+          botonRecord.style.display = "none";
+          botonRecord2.style.display = "none";
+          stopButton.style.display = "inline-block";
+          stopButton2.style.display = "inline-block";
+          playButton.style.display = "none";
+          progressBar.style.display = "none";
+          botonGuardar.style.display = "none";
+          titulo.innerHTML = "Capturando Tu Guifo";
+          tiempo.style.display = "inline-block";  
     },
     onGifPreview: function(gifURL) {
         video.style.display = "inline-block";
         video2.style.display = "none";
-        botonRecord.style.display = "none";
-        botonRecord2.style.display = "none";
-        stopButton.style.display = "inline-block";
-        stopButton2.style.display = "inline-block";
-        playButton.style.display = "none";
-        progressBar.style.display = "none";
-        botonGuardar.style.display = "none";
-        titulo.innerHTML = "Capturando Tu Guifo";
-        tiempo.style.display = "inline-block";
-    }
+        }
   });
   recorderVideo = new RecordRTCPromisesHandler(stream, {
     type: "video",
@@ -164,6 +164,77 @@ function reproducirVideoGrabado() {
     video2.play();
 }
 
+
+async function getGifsLocales(id) {
+  if(id) {
+      let newId = JSON.stringify(id).replace(/['"]+/g, '').replace(/[\[\]']+/g, '').replace(/[',]+/g, '%2C');
+      let respuestaGifID = await fetch('https://api.giphy.com/v1/gifs?api_key=' + API_KEY + '&ids=' + newId);
+      gifJson = await respuestaGifID.json();
+      //console.log(gifJson.data);
+      document.querySelector(".resultados .hoy").innerHTML = "Mis guifos";
+      placeGifs(gifJson.data);
+  }
+}
+
+async function placeGifs(gifs) {
+  let divContainerResultados = document.querySelector(".imgResultados");
+  divContainerResultados.innerHTML = "";
+
+  for (let i = 0 ; i < gifs.length; i++) {
+      let divResultado = document.createElement("div");
+      let figResultado = document.createElement("figure");
+      let imgResultado = document.createElement("img");
+      let slugGif = document.createElement("figcaption");
+      let slugHash = "";
+
+      figResultado.append(slugGif);
+      figResultado.append(imgResultado)
+      divResultado.append(figResultado);
+
+      slugArray = JSON.stringify(gifs[i].slug).replace(/['"]+/g, '').split('-');
+      slugArray.pop();
+      slugArray.forEach(item => {
+          slugHash = slugHash + " #" + item;
+      })
+
+      slugGif.innerHTML = slugHash;
+      slugGif.style.display = "none";
+
+      imgResultado.src = await JSON.stringify(gifs[i].images.fixed_height.url).replace(/['"]+/g, '');
+
+      imgResultado.onload = await function() {
+          if ((gifs[i].images.fixed_height.width / gifs[i].images.fixed_height.height) > 1.5) {
+              divResultado.style.gridColumn = "span 2";
+              divResultado.style.width = "592px";
+          } else {
+              divResultado.style.gridColumn = "span 1";
+              divResultado.style.width = "288px";
+          }
+          divResultado.style.height = "298px";
+          imgResultado.style.width = "100%";
+          imgResultado.style.objectPosition = "center";
+      };
+
+      divContainerResultados.append(divResultado);
+
+      divResultado.onmouseover = function() {
+          this.classList.add('mouseOver');
+          slugGif.style.display = "inline-block";
+          this.style.height = (parseInt(divResultado.style.height) - 6) + "px";
+          this.style.width = (parseInt(divResultado.style.width) - 6) + "px";
+      };
+      divResultado.onmouseout = function() {
+          this.classList.remove('mouseOver');
+          slugGif.style.display = "none";
+          this.style.height = (parseInt(divResultado.style.height) + 6) + "px";
+          this.style.width = (parseInt(divResultado.style.width) + 6) + "px";
+      };
+      
+  }
+}
+
+
+
 async function guardarVideo() {
     if (blob) {
         let form = new FormData();
@@ -223,8 +294,10 @@ async function guardarVideo() {
         botonCancelar.onclick = () => {
           window.location.href = "index.html";
         }
-      
-        /*
+        
+        setTimeout(() => {
+          }, 2500);
+        
         try {
           const respuestaUpload = await fetch("https://upload.giphy.com/v1/gifs?api_key=" + apiKey + "&username=" + username, {
             mode: "cors",
@@ -232,17 +305,68 @@ async function guardarVideo() {
             body: form,
           });
           const parsedResponse = await respuestaUpload.json();
-          
-          //TODO: agregar el final de exito con boton de copiar enlace y descargar guifo. Con listo volver a index.html
+
           misGifs = await JSON.parse(localStorage.getItem("misGifs"));
           misGifs.push(parsedResponse.data.id);
           localStorage.setItem("misGifs", await JSON.stringify(misGifs));
+      
+          containerDiv.style.display = "none";
+          video2.style.display = "inline-block";
+          video2.style.width = "365px";
+          video2.style.height = "191px";
+          video2.style.marginLeft = "24px";
+          video2.style.marginTop = "24px";
+          ventana.parentNode.style.width = "718px";
+          ventana.parentNode.style.height = "391px";
+          ventana.parentNode.style.marginLeft = "360px";
+          botonCancelar.style.marginLeft = "528px";
+          botonCancelar.style.marginTop = "58px";
+          botonCancelar.style.width = "146px";
+          botonCancelar.style.background = "var(--rosa)";
+          botonCancelar.innerHTML = "Listo";
+
+          spanFinal = document.createElement("span");
+          spanFinal.innerHTML = "Guifo creado con éxito";
+          spanFinal.style.fontSize = "16px";
+          spanFinal.style.display = "inline-block";
+          spanFinal.style.fontWeight = "bold";
+          spanFinal.style.position = "absolute";
+          spanFinal.style.left = "779px";
+          spanFinal.style.top = "282px";
+          
+          botonCopiar = document.createElement("button");
+          botonCopiar.innerHTML = "Copiar Enlace Guifo";
+          botonCopiar.style.width = "256px";
+          botonCopiar.style.background = "var(--fondo)";
+          botonCopiar.style.position = "absolute";
+          botonCopiar.style.left = "779px";
+          botonCopiar.style.top = "302px";
+          
+          botonDownload = document.createElement("button");
+          botonDownload.innerHTML = "Descargar Guifo";
+          botonDownload.style.width = "256px";
+          botonDownload.style.background = "var(--fondo)";
+          botonDownload.style.position = "absolute";
+          botonDownload.style.left = "779px";
+          botonDownload.style.top = "352px";
+
+          titulo.innerHTML = "Guifo Subido Con Éxito";
+          botonCerrar.style.display = "inline-block";
+
+          video2.parentNode.insertBefore(botonDownload, video2.nextSibling);
+          video2.parentNode.insertBefore(botonCopiar, video2.nextSibling);
+          video2.parentNode.insertBefore(spanFinal, video2.nextSibling);
+
+          // TODO: falta agregar mis guifos abajo
+
+          document.querySelector(".resultados").style.display = "inline-block";
+          getGifsLocales(localStorage.getItem("misGifs"));
           console.log("Felicitaciones se subió tu gif");
         } catch (e) {
           console.error(e);
           console.error("Error algo salio mal");
         }
-      */} else {
+      } else {
         console.error("No has grabado nada para subir");
       }
 };
