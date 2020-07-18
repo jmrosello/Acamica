@@ -168,7 +168,7 @@ function reproducirVideoGrabado() {
 async function getGifsLocales(id) {
   if(id) {
       let newId = JSON.stringify(id).replace(/['"]+/g, '').replace(/[\[\]']+/g, '').replace(/[',]+/g, '%2C');
-      let respuestaGifID = await fetch('https://api.giphy.com/v1/gifs?api_key=' + API_KEY + '&ids=' + newId);
+      let respuestaGifID = await fetch('https://api.giphy.com/v1/gifs?api_key=' + apiKey + '&ids=' + newId);
       gifJson = await respuestaGifID.json();
       //console.log(gifJson.data);
       document.querySelector(".resultados .hoy").innerHTML = "Mis guifos";
@@ -357,11 +357,12 @@ async function guardarVideo() {
           video2.parentNode.insertBefore(botonCopiar, video2.nextSibling);
           video2.parentNode.insertBefore(spanFinal, video2.nextSibling);
 
-          // TODO: falta agregar mis guifos abajo
-
           document.querySelector(".resultados").style.display = "inline-block";
+          document.querySelector(".hoy").innerHTML = "Mis guifos";
+
           getGifsLocales(localStorage.getItem("misGifs"));
           console.log("Felicitaciones se subió tu gif");
+          
         } catch (e) {
           console.error(e);
           console.error("Error algo salio mal");

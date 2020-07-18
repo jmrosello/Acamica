@@ -7,11 +7,17 @@ let botonCrearGif = document.getElementById("crearGif");
 let botonCancelar = document.getElementById("cancelar");
 let botonComenzar = document.getElementById("comenzar");
 let botonTheme = document.getElementById("theme");
+let botonTheme2 = document.querySelector(".theme");
 let botonMisGifos = document.getElementById("misGifos");
+let divThemes = document.getElementById("chooseTheme");
 let logo = document.querySelector(".logo")
+let botonDay = document.getElementById("day");
+let botonNight = document.getElementById("night");
 
-let rosa = "#F7C9F3";
+
+let rosa = localStorage.getItem("rosa");
 let lupa = "img/lupa.svg";
+divThemes.style.display = "none";
 let busquedas = [];
 let gifsLocales = [];
 let search;
@@ -20,6 +26,12 @@ const API_KEY = "CENhLNWgDzlOGLtY8yMGKohU96s8uvK1"
 const GIF_LIMIT = "12"
 
 window.onload = function () {
+    let rosaOld = "#F7C9F3"
+    if (localStorage.getItem("rosa") == "#F7C9F3") {
+        rosaOld = "#EE3EFE";
+    }
+
+    cambiarColores(rosaOld);
     getTrending();
     getTrendingSearch();
 };
@@ -53,6 +65,7 @@ if(!localStorage.getItem("misGifs")) {
 }
 
 botonBuscar.onclick = () => {
+    divThemes.style.display = "none";
     busquedas.push(inputBuscar.value);
     localStorage.setItem("busquedas",JSON.stringify(busquedas));
     getSearchResults(inputBuscar.value);
@@ -64,6 +77,7 @@ botonBuscar.onclick = () => {
 }
 
 botonCrearGif.onclick = () => {
+    divThemes.style.display = "none";
     document.querySelector("section.buscar").style.display = "none";
     document.querySelector("section.sugeridos").style.display = "none";
     document.querySelector("#crearGif").style.display = "none";
@@ -107,44 +121,30 @@ logo.onclick = () => {
 }
 
 botonTheme.onclick = () => {
-    //TODO: falta que se abra el desplegable de los themes
-    let logo = document.querySelector(".logo");
-
-    if (rosa == "#F7C9F3") {
-        root.style.setProperty('--rosa', "#EE3EFE");
-        rosa = "#EE3EFE";
-        lupa = "img/lupa_light.svg";
-        lupaInactive = "img/Combined Shape.svg";
-        root.style.setProperty('--rosa-focus', "#CE36DB");
-        root.style.setProperty('--azul', "#2E32FB");
-        root.style.setProperty('--azul-focus', "#2629CC");
-        root.style.setProperty('--fondo', "#110038");
-        root.style.setProperty('--gris', "#B4B4B4");
-        root.style.setProperty('--gris-shadow', "#8F8F8F");
-        root.style.setProperty('--gris-tag', "#CCCCCC");
-        botonMisGifos.style.color = "white";
-        logo.src ="img/gifOF_logo_dark.png";
-        
+    if (divThemes.style.display == "none") {
+        divThemes.style.display = "inline-block";
     } else {
-        root.style.setProperty('--rosa', "#F7C9F3");
-        rosa = "#F7C9F3";
-        lupa = "img/lupa.svg";
-        lupaInactive = "img/lupa_inactive.svg";
-        root.style.setProperty('--rosa-focus', "#E6BBE2");
-        root.style.setProperty('--azul', "#4180F6");
-        root.style.setProperty('--azul-focus', "#3A72DB");
-        root.style.setProperty('--fondo', "#FFF4FD");
-        root.style.setProperty('--gris', "#E6E6E6");
-        root.style.setProperty('--gris-shadow', "#B4B4B4");
-        root.style.setProperty('--gris-tag', "#F0F0F0");
-        botonMisGifos.style.color = "#110038";
-        logo.src ="img/gifOF_logo.png";
+        divThemes.style.display = "none";
     }
 }
+
+botonTheme2.onclick = botonTheme.onclick;
+
+botonDay.onclick = () => {
+    cambiarColores("#EE3EFE");
+    divThemes.style.display = "none";
+}
+
+botonNight.onclick = () => {
+    cambiarColores("#F7C9F3");
+    divThemes.style.display = "none";
+}
+
 
 botonMisGifos.onclick = () => {
     document.querySelector("section.buscar").style.display = "none";
     document.querySelector("section.sugeridos").style.display = "none";
+    divThemes.style.display = "none";
     divBusquedas.style.display = "none";
     document.querySelector("section.resultados .hoy").style.marginTop = "35px";
     getGifsLocales(localStorage.getItem("misGifs"));
@@ -165,6 +165,39 @@ inputBuscar.oninput = () => {
     }
 }
 
+async function cambiarColores(rosa) {
+    let logo = document.querySelector(".logo");
+    console.log(localStorage.getItem("rosa"));
+    if (rosa == "#F7C9F3") {
+        localStorage.setItem("rosa", "#EE3EFE");
+        root.style.setProperty('--rosa', "#EE3EFE");
+        lupa = "img/lupa_light.svg";
+        lupaInactive = "img/Combined Shape.svg";
+        root.style.setProperty('--rosa-focus', "#CE36DB");
+        root.style.setProperty('--azul', "#2E32FB");
+        root.style.setProperty('--azul-focus', "#2629CC");
+        root.style.setProperty('--fondo', "#110038");
+        root.style.setProperty('--gris', "#B4B4B4");
+        root.style.setProperty('--gris-shadow', "#8F8F8F");
+        root.style.setProperty('--gris-tag', "#CCCCCC");
+        botonMisGifos.style.color = "white";
+        logo.src ="img/gifOF_logo_dark.png";
+    } else {
+        localStorage.setItem("rosa", "#F7C9F3");
+        root.style.setProperty('--rosa', "#F7C9F3");
+        lupa = "img/lupa.svg";
+        lupaInactive = "img/lupa_inactive.svg";
+        root.style.setProperty('--rosa-focus', "#E6BBE2");
+        root.style.setProperty('--azul', "#4180F6");
+        root.style.setProperty('--azul-focus', "#3A72DB");
+        root.style.setProperty('--fondo', "#FFF4FD");
+        root.style.setProperty('--gris', "#E6E6E6");
+        root.style.setProperty('--gris-shadow', "#B4B4B4");
+        root.style.setProperty('--gris-tag', "#F0F0F0");
+        botonMisGifos.style.color = "#110038";
+        logo.src ="img/gifOF_logo.png";
+    }
+}
 async function getSearchResults(search) {
     let found = await fetch('http://api.giphy.com/v1/gifs/search?limit=' + GIF_LIMIT + '&q=' + search + '&api_key=' + API_KEY)
         .then(response => {

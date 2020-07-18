@@ -519,4 +519,47 @@ section.sugeridos .figSugeridos figure img {
   min-width: 270px !important;
   min-height: 282px !important;
 }
+
+#chooseTheme {
+  display: none;
+  width: 150px;
+  height: 83px;
+  background: #E6E6E6;
+  -webkit-box-shadow: inset -2px -2px 0 0 #B4B4B4, inset 2px 2px 0 0 #FFFFFF;
+          box-shadow: inset -2px -2px 0 0 #B4B4B4, inset 2px 2px 0 0 #FFFFFF;
+  padding: 10px;
+  position: absolute;
+  left: calc(47.32vw + 250px);
+  top: 40px;
+}
+
+#chooseTheme button {
+  margin: 0px;
+  top: 10px;
+  width: 150px;
+  background: #F0F0F0;
+  border: 1px solid #808080;
+  -webkit-box-shadow: inset -1px -1px 0 0 #B4B4B4, inset 1px 1px 0 0 #FFFFFF;
+          box-shadow: inset -1px -1px 0 0 #B4B4B4, inset 1px 1px 0 0 #FFFFFF;
+  text-align: left;
+  padding-left: 15px;
+}
+
+#chooseTheme button:focus {
+  background: #FFF4FD;
+  border: 1px solid #CCA6C9;
+  -webkit-box-shadow: inset -1px -1px 0 0 #E6DCE4, inset 1px 1px 0 0 #FFFFFF;
+          box-shadow: inset -1px -1px 0 0 #E6DCE4, inset 1px 1px 0 0 #FFFFFF;
+}
+
+#chooseTheme button:active {
+  background: #FFF4FD;
+  border: 1px solid #CCA6C9;
+  -webkit-box-shadow: inset -1px -1px 0 0 #E6DCE4, inset 1px 1px 0 0 #FFFFFF;
+          box-shadow: inset -1px -1px 0 0 #E6DCE4, inset 1px 1px 0 0 #FFFFFF;
+}
+
+#chooseTheme #night {
+  top: 56px;
+}
 /*# sourceMappingURL=styles.css.map */
