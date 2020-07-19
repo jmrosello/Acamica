@@ -320,4 +320,8 @@ header nav .flecha {
   min-width: 270px !important;
   min-height: 282px !important;
 }
+
+h3 {
+  display: none;
+}
 /*# sourceMappingURL=stylesRecord.css.map */

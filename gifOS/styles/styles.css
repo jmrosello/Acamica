@@ -562,4 +562,8 @@ section.sugeridos .figSugeridos figure img {
 #chooseTheme #night {
   top: 56px;
 }
+
+h3 {
+  display: none;
+}
 /*# sourceMappingURL=styles.css.map */

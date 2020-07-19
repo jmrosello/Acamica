@@ -172,7 +172,7 @@ async function cambiarColores(rosa) {
         localStorage.setItem("rosa", "#EE3EFE");
         root.style.setProperty('--rosa', "#EE3EFE");
         lupa = "img/lupa_light.svg";
-        lupaInactive = "img/Combined Shape.svg";
+        lupaInactive = "img/Combined_Shape.svg";
         root.style.setProperty('--rosa-focus', "#CE36DB");
         root.style.setProperty('--azul', "#2E32FB");
         root.style.setProperty('--azul-focus', "#2629CC");

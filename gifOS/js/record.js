@@ -1,6 +1,6 @@
 //Variables globales
-var apiKey = "CENhLNWgDzlOGLtY8yMGKohU96s8uvK1"
-var username = "jrosello";
+const apiKey = "CENhLNWgDzlOGLtY8yMGKohU96s8uvK1"
+const username = "jrosello";
 let stream;
 let recorderVideo, recorder;
 let blob, blobVideo;
