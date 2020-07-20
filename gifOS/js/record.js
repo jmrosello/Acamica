@@ -23,6 +23,10 @@ const tiempo = document.querySelector("h2");
 botonRecord.disabled = true;
 botonRecord2.disabled = true;
 
+if(!localStorage.getItem("misGifs")) {
+  localStorage.setItem("misGifs", "[]");
+}
+
 flechaButton.onclick = () => {
     window.location.href = "index.html";
 }

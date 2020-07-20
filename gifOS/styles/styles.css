@@ -256,8 +256,8 @@ section.sugeridos .figSugeridos {
   display: -ms-grid;
   display: grid;
   grid-auto-flow: row dense;
-  -ms-grid-columns: (minmax(288px, 1fr))[auto-fill];
-      grid-template-columns: repeat(auto-fill, minmax(288px, 1fr));
+  -ms-grid-columns: (minmax(280px, 1fr))[auto-fill];
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
   grid-gap: 1.1vw;
   overflow: hidden;
   height: 313px;
@@ -266,7 +266,7 @@ section.sugeridos .figSugeridos {
 section.sugeridos .figSugeridos figure {
   position: relative;
   height: 313px;
-  width: 288px;
+  width: 280px;
   overflow: hidden;
   background: var(--gris);
   -webkit-box-shadow: inset -2px -2px 0 0 var(--gris-shadow), inset 2px 2px 0 0 #FFFFFF;
@@ -472,14 +472,14 @@ section.sugeridos .figSugeridos figure img {
   display: -ms-grid;
   display: grid;
   grid-auto-flow: row dense;
-  -ms-grid-columns: (minmax(288px, 1fr))[auto-fill];
-      grid-template-columns: repeat(auto-fill, minmax(288px, 1fr));
+  -ms-grid-columns: (minmax(280px, 1fr))[auto-fill];
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
   grid-gap: 16px;
 }
 
 .resultados .imgResultados div {
   height: 298px;
-  width: 288px;
+  width: 280px;
   overflow: hidden;
 }
 

@@ -219,15 +219,16 @@ section.sugeridos {
     .figSugeridos {
         display: grid;
         grid-auto-flow: row dense;
-        grid-template-columns: repeat(auto-fill, minmax(288px, 1fr));
+        grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
         grid-gap: 1.1vw;
+        
         overflow: hidden;
         height: 313px;
 
         figure {
             position: relative;
             height: 313px;
-            width: 288px;
+            width: 280px;
             overflow: hidden;
             background: var(--gris);
             box-shadow: inset -2px -2px 0 0 var(--gris-shadow), inset 2px 2px 0 0 #FFFFFF;
@@ -409,11 +410,11 @@ section.sugeridos {
     .imgResultados {
         display: grid;
         grid-auto-flow: row dense;
-        grid-template-columns: repeat(auto-fill, minmax(288px, 1fr));
+        grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
         grid-gap: 16px;
         div {
             height: 298px;
-            width: 288px;
+            width: 280px;
             overflow: hidden;
             figure {
                 img {

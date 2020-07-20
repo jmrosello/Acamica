@@ -61,7 +61,7 @@ if(localStorage.getItem("busquedas")) {
 }
 
 if(!localStorage.getItem("misGifs")) {
-    localStorage.setItem("misGifs", "");
+    localStorage.setItem("misGifs", "[]");
 }
 
 botonBuscar.onclick = () => {
@@ -264,7 +264,7 @@ async function placeGifs(gifs) {
         imgResultado.onload = await function() {
             if ((gifs[i].images.fixed_height.width / gifs[i].images.fixed_height.height) > 1.5) {
                 divResultado.style.gridColumn = "span 2";
-                divResultado.style.width = "592px";
+                divResultado.style.width = "588px";
             } else {
                 divResultado.style.gridColumn = "span 1";
                 divResultado.style.width = "288px";
