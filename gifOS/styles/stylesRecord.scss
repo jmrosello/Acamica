@@ -60,7 +60,7 @@ header{
     margin-bottom: 150px;
     width: 856px;
     height: 545px;
-    background: #E6E6E6;
+    background: var(--gris);
     box-shadow: inset -2px -2px 0 0 var(--gris-shadow), inset 2px 2px 0 0 #FFFFFF;
     padding: 2px;
     font-family: 'Chakra Petch', sans-serif;
@@ -94,7 +94,7 @@ header{
         height: 434px;
         object-fit: cover;
         border: 2px solid #979797;
-        box-shadow: inset -2px -2px 0 0 #E6E6E6, inset 2px 2px 0 0 #000000;
+        box-shadow: inset -2px -2px 0 0 var(--gris), inset 2px 2px 0 0 #000000;
         &.gif {
             display: none;
         }
@@ -175,7 +175,7 @@ header{
         color: #110038;
         background: #FFFFFF;
         border: 1px solid #979797;
-        box-shadow: inset -2px -2px 0 0 #E6E6E6, inset 2px 2px 0 0 #000000;
+        box-shadow: inset -2px -2px 0 0 var(--gris), inset 2px 2px 0 0 #000000;
         letter-spacing: 0;
         line-height: 22px;
         display: none;
@@ -188,7 +188,6 @@ header{
     
     #progressBar {
         display: none;
-        //background: #B4B4B4;
         box-shadow: inset 2px 2px 0 0 #000000, inset -2px -2px 0 0 #FFFCFC;
         color: #FFFFFF;
         width: 240px;
@@ -197,7 +196,7 @@ header{
         margin-top: 24px;
     }
     #progress {
-        background-color: #F7C9F3;
+        background-color: var(--rosa);
         height: 20px;
         display: inline-block;
     }
@@ -210,7 +209,7 @@ header{
     display: none;
 }
 .boxRosa {
-    background-color: #F7C9F3;
+    background-color: var(--rosa);
     width: 12px;
     height: 20px;
 }

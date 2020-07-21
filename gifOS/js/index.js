@@ -73,7 +73,6 @@ botonBuscar.onclick = () => {
     document.querySelector(".sugeridos").style.display = "none";
     divBusquedas.style.display = "inline-block";
     populateButtons();
-    console.log(divBusquedas);
 }
 
 botonCrearGif.onclick = () => {
@@ -167,7 +166,6 @@ inputBuscar.oninput = () => {
 
 async function cambiarColores(rosa) {
     let logo = document.querySelector(".logo");
-    console.log(localStorage.getItem("rosa"));
     if (rosa == "#F7C9F3") {
         localStorage.setItem("rosa", "#EE3EFE");
         root.style.setProperty('--rosa', "#EE3EFE");
@@ -181,6 +179,7 @@ async function cambiarColores(rosa) {
         root.style.setProperty('--gris-shadow', "#8F8F8F");
         root.style.setProperty('--gris-tag', "#CCCCCC");
         botonMisGifos.style.color = "white";
+        botonCancelar.style.color = "white";
         logo.src ="img/gifOF_logo_dark.png";
     } else {
         localStorage.setItem("rosa", "#F7C9F3");
@@ -195,9 +194,11 @@ async function cambiarColores(rosa) {
         root.style.setProperty('--gris-shadow', "#B4B4B4");
         root.style.setProperty('--gris-tag', "#F0F0F0");
         botonMisGifos.style.color = "#110038";
+        botonCancelar.style.color = "#110038";
         logo.src ="img/gifOF_logo.png";
     }
 }
+
 async function getSearchResults(search) {
     let found = await fetch('http://api.giphy.com/v1/gifs/search?limit=' + GIF_LIMIT + '&q=' + search + '&api_key=' + API_KEY)
         .then(response => {
@@ -228,7 +229,6 @@ async function getGifsLocales(id) {
         let newId = JSON.stringify(id).replace(/['"]+/g, '').replace(/[\[\]']+/g, '').replace(/[',]+/g, '%2C');
         let respuestaGifID = await fetch('https://api.giphy.com/v1/gifs?api_key=' + API_KEY + '&ids=' + newId);
         gifJson = await respuestaGifID.json();
-        //console.log(gifJson.data);
         document.querySelector(".resultados .hoy").innerHTML = "Mis guifos";
         placeGifs(gifJson.data);
 }

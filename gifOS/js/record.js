@@ -6,6 +6,7 @@ let recorderVideo, recorder;
 let blob, blobVideo;
 let recording = false;
 
+const root = document.documentElement;
 const botonRecord = document.querySelector("#comenzar");
 const botonRecord2 = document.querySelector("#camara");
 const botonGuardar = document.querySelector("#guardarGiphy");
@@ -137,7 +138,7 @@ async function detenerGrabacion(){
 
         botonRecord.style.display = "inline-block";
         botonRecord.innerHTML = "Repetir Captura";
-        botonRecord.style.background = "#FFF4FD";
+        botonRecord.style.background = "var(--fondo)";
         botonRecord.style.marginLeft = "118px";
         playButton.style.display = "inline-block";
         progressBar.style.display = "inline-block";
@@ -237,6 +238,42 @@ async function placeGifs(gifs) {
   }
 }
 
+async function cambiarColores(rosa) {
+  let logo = document.querySelector(".logo");
+  if (rosa == "#F7C9F3") {
+      localStorage.setItem("rosa", "#EE3EFE");
+      root.style.setProperty('--rosa', "#EE3EFE");
+      lupa = "img/lupa_light.svg";
+      lupaInactive = "img/Combined_Shape.svg";
+      root.style.setProperty('--rosa-focus', "#CE36DB");
+      root.style.setProperty('--azul', "#2E32FB");
+      root.style.setProperty('--azul-focus', "#2629CC");
+      root.style.setProperty('--fondo', "#110038");
+      root.style.setProperty('--gris', "#B4B4B4");
+      root.style.setProperty('--gris-shadow', "#8F8F8F");
+      root.style.setProperty('--gris-tag', "#CCCCCC");
+//      botonCancelar.style.color = "white";
+      botonRecord.style.color = "white";
+      botonRecord2.firstChild.src = "img/camera_light.svg";
+      logo.src ="img/gifOF_logo_dark.png";
+  } else {
+      localStorage.setItem("rosa", "#F7C9F3");
+      root.style.setProperty('--rosa', "#F7C9F3");
+      lupa = "img/lupa.svg";
+      lupaInactive = "img/lupa_inactive.svg";
+      root.style.setProperty('--rosa-focus', "#E6BBE2");
+      root.style.setProperty('--azul', "#4180F6");
+      root.style.setProperty('--azul-focus', "#3A72DB");
+      root.style.setProperty('--fondo', "#FFF4FD");
+      root.style.setProperty('--gris', "#E6E6E6");
+      root.style.setProperty('--gris-shadow', "#B4B4B4");
+      root.style.setProperty('--gris-tag', "#F0F0F0");
+//      botonCancelar.style.color = "#110038";
+      botonRecord.style.color = "#110038";
+      logo.src ="img/gifOF_logo.png";
+      botonRecord2.firstChild.src = "img/camera.svg";
+  }
+}
 
 
 async function guardarVideo() {
@@ -376,4 +413,12 @@ async function guardarVideo() {
       }
 };
 
-mostrarVideo();
+window.onload = function () {
+  let rosaOld = "#F7C9F3"
+  if (localStorage.getItem("rosa") == "#F7C9F3") {
+      rosaOld = "#EE3EFE";
+  }
+
+  cambiarColores(rosaOld);
+  mostrarVideo();
+};
