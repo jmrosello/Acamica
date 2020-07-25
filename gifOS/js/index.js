@@ -27,6 +27,7 @@ const GIF_LIMIT = "12"
 
 window.onload = function () {
     let rosaOld = "#F7C9F3"
+    botonBuscar.firstChild.src = "img/Combined_Shape.svg";
     if (localStorage.getItem("rosa") == "#F7C9F3") {
         rosaOld = "#EE3EFE";
     }
@@ -87,7 +88,11 @@ botonCrearGif.onclick = () => {
 
     document.querySelector(".flecha").style.display = "block";
     document.querySelector("section.crearGifos").style.display = "block";
-    getGifsLocales(localStorage.getItem("misGifs"));
+    if (localStorage.getItem("misGifs").length > 2) {
+        getGifsLocales(localStorage.getItem("misGifs"));
+    } else {
+        document.querySelector(".imgResultados").innerHTML = "No tienes Guifos cargados.";
+    }
 }
 
 botonCancelar.onclick = () => {
@@ -146,7 +151,11 @@ botonMisGifos.onclick = () => {
     divThemes.style.display = "none";
     divBusquedas.style.display = "none";
     document.querySelector("section.resultados .hoy").style.marginTop = "35px";
-    getGifsLocales(localStorage.getItem("misGifs"));
+    if (localStorage.getItem("misGifs").length > 2) {
+        getGifsLocales(localStorage.getItem("misGifs"));
+    } else {
+        document.querySelector(".imgResultados").innerHTML = "No tienes Guifos cargados.";
+    }
 }
 
 inputBuscar.oninput = () => {
@@ -155,6 +164,7 @@ inputBuscar.oninput = () => {
         botonBuscar.style.backgroundColor = "var(--gris)";
         botonBuscar.style.color = "var('--gris-shadow')";
         botonBuscar.firstChild.src = lupaInactive;
+        tagRelated[0].parentElement.style.display = "none";
     } else {
         botonBuscar.disabled = false;
         botonBuscar.style.backgroundColor = "var(--rosa)";

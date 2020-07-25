@@ -400,8 +400,11 @@ async function guardarVideo() {
 
           document.querySelector(".resultados").style.display = "inline-block";
           document.querySelector(".hoy").innerHTML = "Mis guifos";
-
-          getGifsLocales(localStorage.getItem("misGifs"));
+          if (localStorage.getItem("misGifs").length > 2) {
+              getGifsLocales(localStorage.getItem("misGifs"));
+          } else {
+              document.querySelector(".imgResultados").innerHTML = "No tienes Guifos cargados.";
+          }
           console.log("Felicitaciones se subió tu gif");
           
         } catch (e) {
