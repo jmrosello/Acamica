@@ -210,7 +210,7 @@ async function cambiarColores(rosa) {
 }
 
 async function getSearchResults(search) {
-    let found = await fetch('http://api.giphy.com/v1/gifs/search?limit=' + GIF_LIMIT + '&q=' + search + '&api_key=' + API_KEY)
+    let found = await fetch('https://api.giphy.com/v1/gifs/search?limit=' + GIF_LIMIT + '&q=' + search + '&api_key=' + API_KEY)
         .then(response => {
             return response.json();
         })
@@ -304,14 +304,14 @@ async function placeGifs(gifs) {
 
 async function getTrending() {
     try {
-        let found = await (await fetch('http://api.giphy.com/v1/gifs/trending?limit=' + GIF_LIMIT + '&api_key=' + API_KEY)).json();
+        let found = await (await fetch('https://api.giphy.com/v1/gifs/trending?limit=' + GIF_LIMIT + '&api_key=' + API_KEY)).json();
         placeGifs(found.data);
     }
     catch (error) {console.log(error)}
 }
 
 function getTrendingSearch() {
-    let found = fetch('http://api.giphy.com/v1/trending/searches?limit=' + GIF_LIMIT + '&api_key=' + API_KEY)
+    let found = fetch('https://api.giphy.com/v1/trending/searches?limit=' + GIF_LIMIT + '&api_key=' + API_KEY)
         .then(response => {
             return response.json();
         })
@@ -326,7 +326,7 @@ function getTrendingSearch() {
             
             for (let i = 0 ; i < 8; i++) {
                 let search2 = JSON.stringify(trendingSearch[i]).replace(/['"]+/g, '')
-                let unSearchGif = fetch('http://api.giphy.com/v1/gifs/search?limit=1&q=' + search2 + '&api_key=' + API_KEY)
+                let unSearchGif = fetch('https://api.giphy.com/v1/gifs/search?limit=1&q=' + search2 + '&api_key=' + API_KEY)
                     .then(response => {
                         return response.json();
                     })
@@ -365,7 +365,7 @@ function getTrendingSearch() {
 }
 
 function getTagsRelated(search) {
-    let found = fetch('http://api.giphy.com/v1/tags/related/' + search + '?api_key=' + API_KEY)
+    let found = fetch('https://api.giphy.com/v1/tags/related/' + search + '?api_key=' + API_KEY)
         .then(response => {
             return response.json();
         })
